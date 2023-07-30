@@ -10,51 +10,176 @@
 <body>
     <header class="header">
 		<div class="menu container">
-			<a href="#" class="logo">Logo</a>
+			<a href="#inicio" class="logo">Logo</a>
 			<input type="checkbox" id="menu"/>
 			<label for="menu">
 				<img src="images/menu.png" class="menu-icono" alt=""/>
 			</label>
 			<nav class="navbar">
 				<ul>
-					<li><a href="#">Inicio</a>
-						<ul class="menu-vertical">
-							<li><a href="#"> vacio</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Suscripción</a>
-						<ul class="menu-vertical">
-							<li><a href="#"> Suscribirse</a></li>
-							<li><a href="/inicios/ingreso"> Iniciar sesión</a></li>
-						</ul>
-					</li>
 					<li><a href="#">Servicios</a>
 						<ul class="menu-vertical">
-							<li><a href="#"> Tickets/Reservas</a></li>
-							<li><a href="#"> Eventos</a></li>
-							<li><a href="#"> Contactos</a></li>
+							<li><a href="#"> Membresía</a></li>
+							<li><a href="#tickets"> Tickets y Reserva</a></li>
+							<li><a href="#evento"> Eventos</a></li>
 						</ul>
 					</li>
-					<li><a href="#">Donaciones</a></li>
+					<li><a href="#">Donaciones</a>
+					</li>
+					<li><a href="/inicios/ingreso">Iniciar sesión</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
-        
-		<div class="header-content container">
-			<h1>Zoologico Ecuador</h1>
+		<div class="header-content container" id="inicio">
+			<h1>Zoológico "Naturaleza Viva"</h1>
 			<p>
-				En los últimos años, muchos zoológicos han evolucionado
-				hacia el concepto de conservación y bienestar animal, 
-				enfocándose en proporcionar cuidado y enriquecimiento 
-				para los animales, promoviendo prácticas sostenibles y éticas, 
-				y trabajando en colaboración con instituciones y organizaciones 
-				dedicadas a la conservación y la protección del medio ambiente.
+				En "Naturaleza Viva", estamos comprometidos con la educación ambiental 
+				y la sensibilización sobre la importancia de preservar la biodiversidad. 
+				Creemos que cada paso que damos hacia la comprensión y protección de los 
+				animales contribuye a un mundo más consciente y sostenible.
 			</p>
 			<a href="#" class="btn-1">Información</a>
 		</div>
 	</header>
 	
+	<section class="zoo">
+		<img class="zoo-img" src="images/bg2.png" alt="">
+		<div class="zoo-content conteiner">
+			<h2>Introducción al Zoológico</h2>
+			<p class="txt-p">
+				El Zoológico Familiar "Naturaleza Viva" es una iniciativa creada
+				con pasión y dedicación por parte de nuestra familia, impulsada 
+				por el amor y respeto incondicional hacia los animales. 
+				Nuestro principal propósito es acercar a la comunidad de Quito 
+				y sus alrededores a la fascinante diversidad de animales exóticos 
+				que habitan nuestro zoológico.
+			</p>
+			
+			<div class="zoo-group">
+				<div class="zoo-1">
+					<h4 class="mamifero"></h4>
+					<h3>Sección de Mamíferos</h3>
+					<p>
+						Nuestra sección de mamíferos es un espacio mágico donde podrás
+						adentrarte en el fascinante mundo de los mamíferos. 
+					</p>
+				</div>
+				<div class="zoo-1">
+					<h4 class="reptil"></h4>
+					<h3>Sección de Reptiles</h3>
+					<p>
+						Adéntrate en nuestra sección de reptiles y descubre la fascinante 
+						belleza de estas criaturas de sangre fría.  
+					</p>
+				</div>
+				<div class="zoo-1">
+					<h4 class="ave"></h4>
+					<h3>Sección de Aves</h3>
+					<p>
+						Nuestra sección de aves es un paraíso para los amantes de las aves 
+						de todos los colores y tamaños. 
+					</p>
+				</div>
+			</div>
+			<a href="#" class="btn-1">Informacion</a>
+		</div>
+	</section>
 	
+	<main class="tickets" id="tickets">
+		<div class="tickets-content conteiner">
+			<h2>Tickets</h2>
+			<div class="tickets-group">
+				<div class="tickets-1">
+					<img src="images/i1.svg" alt="">
+					<h3>Tarifa niños</h3>
+				</div>
+				<div class="tickets-1">
+					<img src="images/i2.svg" alt="">
+					<h3>Tarifa adultos</h3>
+				</div>
+				<div class="tickets-1">
+					<img src="images/i3.svg" alt="">
+					<h3>Tarifa privilegiada</h3>
+				</div>
+			</div>
+			<p>
+				El café es la bebida que se obtiene mediante el percolado de agua caliente 
+				a través de los granos tostados y molidos de los frutos de la planta del 
+				café; es altamente estimulante por su contenido de cafeína, ​ una sustancia 
+				psicoactiva
+			</p>
+			<a href="#" class="btn-1">Informacion</a>
+		</div>
+	</main>
+    
+	<section class="evento" id="evento">
+		<div class="evento-1">
+			<h2>Evento de Introducción de Especies</h2>
+			<p>
+				En este emocionante evento, damos la bienvenida a nuevas especies a 
+				nuestro zoológico. Cada introducción representa un hito en nuestros 
+				esfuerzos de conservación y nos brinda la oportunidad de educar a 
+				nuestros visitantes sobre la historia y características únicas de cada animal. 
+				A través de exhibiciones interactivas y charlas educativas, nuestros expertos 
+				en vida silvestre comparten información valiosa sobre el papel de estas especies 
+				en sus ecosistemas y cómo podemos contribuir a su bienestar. Es un momento de emoción 
+				y esperanza, donde todos somos parte de un esfuerzo colectivo para proteger la biodiversidad.
+			</p>
+			<a href="#" class="btn-1">Informacion</a>
+		</div>
+		<div class="evento-2"></div>
+	</section>
+    
+	<section class="evento">
+		<div class="evento-3"></div>
+		<div class="evento-1">
+			<h2>Evento de Liberación de Especies</h2>
+			<p>
+				La liberación de especies es uno de los momentos más conmovedores en nuestro zoológico. 
+				Es cuando celebramos el retorno de animales rescatados o rehabilitados a su hábitat natural. 
+				A través de asociaciones con organizaciones de conservación y programas de rescate, hemos tenido 
+				el privilegio de rehabilitar y cuidar a animales heridos o en peligro, preparándolos para su 
+				liberación en la naturaleza. En este evento, compartimos historias de resiliencia y superación, 
+				destacando la importancia de la colaboración entre la comunidad y los expertos en vida silvestre. 
+				Es un momento de reflexión y gratitud, donde honramos el ciclo de la vida y el papel esencial que 
+				desempeñamos en la protección de la fauna. 
+			</p>
+			<a href="#" class="btn-1">Informacion</a>
+		</div>
+	</section>
+	
+	<footer class="footer">
+		<div class="footer-content container">
+			<div class="link">
+				<h3>Zoológico Naturaleza Viva</h3>
+				<ul>
+					<li><a href="#">Twitter</a></li>
+					<li><a href="#">Youtube</a></li>
+					<li><a href="#">Instagram</a></li>
+					<li><a href="#">Facebook</a></li>
+				</ul>
+			</div>
+			<div class="link">
+				<h3>Contactos</h3>
+				<ul>
+					<li><a href="#">Email: info@zooNaturalezaViva.org</a></li>
+					<li><a href="#">Teléfono: 900-801-5888 </a></li>
+					<li><a href="#">Horarios: Martes a Domingo de 10 a 19 horas.</a></li>
+					<li><a href="#">Ubicación: Av. Universitaria, La Gasca, Quito</a></li>
+				</ul>
+			</div>
+			<div class="link">
+				<h3>Políticas</h3>
+				<ul>
+					<li><a href="#">Política de privacidad</a></li>
+					<li><a href="#">Términos de uso</a></li>
+					<li><a href="#">Témas legales</a></li>
+					<li><a href="#">Declaración de accesibilidad</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
     
 </body>
 </html>
