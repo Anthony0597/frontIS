@@ -21,16 +21,16 @@ body{
 }
 
 .container{
-	max-width: 1200px;
+	max-width: 100%;
 	margin: 0 auto;
 }
 .header{
 	background-image:
-	/*linear-gradient(
-        rgba(0,0,0,0.7),
-        rgba(0,0,0,0.7)),*/
+	linear-gradient(
+        rgba(0.2,0.2,0.2,0.3),
+        rgba(0.2,0.2,0.2,0.3)),
         url(images/fondo9.jpg);
-	background-position: center bottom;
+	background-position: center 10%;
     background-repeat: no-repeat;
 	background-size: cover;
 	min-height: 70vh;
@@ -54,17 +54,20 @@ body{
   	display: flex;
   	align-items: center;
   	justify-content: space-between;
-  	/*background-color: rgba(0, 0, 0, 0.7); /* Fondo del navbar */
-  	padding: 0px; /* Espacio interno del navbar */
+  	background-color: rgba(255, 183, 30, 1); /* Fondo del navbar */
+  	padding: 0; /* Espacio interno del navbar */
   	z-index: 100; /* Valor alto para estar por encima de otros elementos */
   	transition: all 0.5s ease;
+  	
 }
 .logo{
-	color: #FFFDFC;
-	font-size: 25px;
-	font-weight: 800;
-	-webkit-text-stroke: 1px black; /* Ancho y color del contorno */
-    /*logo: 2px black;*/
+	padding: 0 200px;
+  	background-image: url(images/logo_oscuro.png);
+  	background-size: contain;
+  	background-repeat: no-repeat;
+  	background-position: left;
+	width: 100;
+  	height: 50px;
 }
 
 .menu .navbar ul li{
@@ -77,12 +80,12 @@ body{
 	color: #FFFDFC;
 	display: block;
 	font-weight: 600;
-	-webkit-text-stroke: 1px black; /* Ancho y color del contorno */
+	/*-webkit-text-stroke: 1px black; /* Ancho y color del contorno */
     /*logo: 2px black;*/
 }
 .menu .navbar ul li a:hover{
-	color: #E8D062;
-	-webkit-text-stroke: 1px black; /* Ancho y color del contorno */
+	color: darkorange;
+	/*-webkit-text-stroke: 1px black; /* Ancho y color del contorno */
 }
 #menu{
 	display: none;
@@ -110,10 +113,10 @@ body{
 }
 .header-content p{
     font-size: 18px;
-    color: black;
+    color: gray;
     padding: 0 250px;
     margin-bottom: 25px;
-    -webkit-text-stroke: 1px black; /* Ancho y color del contorno */
+    -webkit-text-stroke: 1px darkgray; /* Ancho y color del contorno */
 }
 .btn-1{
     display: inline-block;
