@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="/css/estiloA.css">
+</head>
+
+<body>
+	<header class="header">
+		<div class="header-content container" id="inicio">
+			<h1>Zoológico "Naturaleza Viva"</h1>
+		</div>
+	</header>
+	<div>
+		<nav>
+			<ul class="menu-horizontal">
+				<h1 href="#">Bienvenido "Nombre admin"</h1>
+				<li><a href="#">Nómina</a>
+					<ul class="menu-vertical">
+						<li><a href="#">Registrar Empleado</a></li>
+						<li><a href="#">Mostrar Empeados</a></li>
+						<li><a href="#">Modificar Empleado</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Animales</a>
+					<ul class="menu-vertical">
+						<li><a href="#">Registrar Animal</a></li>
+						<li><a href="#">Mostrar Animal</a></li>
+						<li><a href="#">Modificar Animal</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Proveedores</a>
+					<ul class="menu-vertical">
+						<li><a href="#">Registrar Proveedor</a></li>
+						<li><a href="#">Mostrar Proveedor</a></li>
+						<li><a href="#">Modificar Proveedor</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Inventario</a>
+					<ul class="menu-vertical">
+						<li><a href="#">Ingresar Producto</a></li>
+						<li><a href="#">Mostrar Inventario</a></li>
+						<li><a href="#">Retirar Inventario</a></li>
+					</ul>
+				</li>				
+				<li><a href="#">Perfil</a></li>
+			</ul>
+		</nav>
+	</div>
+
+
+	<div class="header-content container">
+		<table>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nombre</th>					
+					<th>Opcion</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="vehiculo:${Vehiculos}">
+					<td th:text="${vehiculo.placa}"></td>
+					<td th:text="${vehiculo.modelo}"></td>
+					<td th:text="${vehiculo.marca}"></td>
+					<td>
+						<form action="#" th:action="@{vehiculo/borrar/{pla}(pla=${vehiculo.placa})}"
+							th:object="${vehiculo}" th:method="DELETE">
+							<input type="submit" value="borrar">
+						</form>
+					</td>
+					<td>
+						<form th:action="@{/vehiculo/buscarMarca/{mar}(mar=${vehiculo.marca})}" th:object="${vehiculo}"
+							th:method="Get">
+							<input type="submit" value="Editar">
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+</body>
+
+</html>

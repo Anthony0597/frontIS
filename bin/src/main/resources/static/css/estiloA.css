@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style: none;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+section[id]{
+	scroll-margin-top: 75px;
+}
+
+body{
+	background-image: url(images/fondo3.jpg);
+	background-size: cover;
+	font-family: 'Poppins', sans-serif;
+}
+
+.container{
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.header{
+	background-image:
+        url(images/fondo9.jpg);
+	background-position: center bottom;
+    background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 20vh;
+	display: flex;
+	align-items: center;
+}
+
+.header-content{
+    text-align: center;
+}
+.header-content h1{
+    font-size: 30px;
+    line-height: 80px;
+    color: #F9FAFC;
+    text-transform: uppercase;
+    /*margin-bottom: 15px;*/
+    -webkit-text-stroke: 1px black; /* Ancho y color del contorno */
+}
+.header-content p{
+    font-size: 18px;
+    color: black;
+    padding: 0 250px;
+    margin-bottom: 25px;
+    -webkit-text-stroke: 1px black; /* Ancho y color del contorno */
+}
+
+nav{
+	max-width: 1200px; 
+	margin: auto;
+	background-color: #E8D062;
+	font-size: 50px;
+	margin-top: 250px;
+}
+nav{
+	max-width: 1200px; 
+	margin: auto;
+	background-color: #E8D062;
+	font-size: 13px;
+	margin-top: 30px;
+}
+.menu-horizontal{
+	list-style: none;
+	display: flex;
+	justify-content: space-around;
+}
+.menu-horizontal > li > a{
+	display: block;
+	padding: 10px 15px;
+	color: white;
+	text-decoration: none;
+}
+.menu-horizontal > li:hover{
+	background-color:dodgerblue;
+}
+.menu-vertical{
+	position: absolute;
+	display: none;
+	list-style: none;
+	width: 170px;
+	background-color: rgba(0, 0, 0, .5);
+}
+.menu-horizontal li:hover .menu-vertical{
+	display: block;
+}
+.menu-vertical li:hover{
+	background-color: black;
+}
+
+.menu-vertical li a{
+	display: block;
+	color: white;
+	text-decoration: none;
+	padding: 10px 10px 10px 15px;
+}
