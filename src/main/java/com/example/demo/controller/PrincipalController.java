@@ -18,6 +18,11 @@ public class PrincipalController {
 		return "vistaIngreso";
 	}
 	
+	@GetMapping("/registro")
+	public String registro() {// falta el argumento
+		return "vistaRegistro";
+	}
+	
 	@GetMapping("/suscripcion")
 	public String suscripcion() {// falta el argumento
 		return "vistaSuscripcion";
