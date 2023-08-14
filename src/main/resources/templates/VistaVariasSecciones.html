@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Mostrar y Ocultar Secciones</title>
+	<style>
+		.oculta {
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<ul>
+		<li th:each="seccion : ${seccionesVisibles.keySet()}">
+			<form th:action="@{/prueba/mostrar-seccion/{seccion}(seccion=${seccion})}" method="get">
+				<button type="submit" th:text="${seccionesVisibles[__${seccion}__] ? 'Ocultar' : 'Mostrar'}"></button>
+			</form>
+		</li>
+	</ul>
+	<div th:each="seccion : ${seccionesVisibles.keySet()}" th:classappend="${seccionesVisibles[__${seccion}__] ? 'visible' : 'oculta'}">
+		Contenido de la sección <strong th:text="${seccion}"></strong> que puede mostrarse u ocultarse.
+	</div>
+
+</body>
+
+</html>

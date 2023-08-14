@@ -46,45 +46,113 @@
 						<li><a href="#">Mostrar Inventario</a></li>
 						<li><a href="#">Retirar Inventario</a></li>
 					</ul>
-				</li>				
+				</li>
 				<li><a href="#">Perfil</a></li>
 			</ul>
 		</nav>
 	</div>
 
+	<div class="header-content container">
+		<h1>Horario</h1>
+	</div>
 
 	<div class="header-content container">
 		<table>
 			<thead>
 				<tr>
-					<th>Id</th>
-					<th>Nombre</th>					
-					<th>Opcion</th>
+					<th>Hora</th>
+					<th>Lunes</th>
+					<th>Martes</th>
+					<th>Miércoles</th>
+					<th>Jueves</th>
+					<th>Viernes</th>
+					<th>Sábado</th>
+					<th>Domingo</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="vehiculo:${Vehiculos}">
-					<td th:text="${vehiculo.placa}"></td>
-					<td th:text="${vehiculo.modelo}"></td>
-					<td th:text="${vehiculo.marca}"></td>
-					<td>
-						<form action="#" th:action="@{vehiculo/borrar/{pla}(pla=${vehiculo.placa})}"
-							th:object="${vehiculo}" th:method="DELETE">
-							<input type="submit" value="borrar">
-						</form>
-					</td>
-					<td>
-						<form th:action="@{/vehiculo/buscarMarca/{mar}(mar=${vehiculo.marca})}" th:object="${vehiculo}"
-							th:method="Get">
-							<input type="submit" value="Editar">
-						</form>
-					</td>
+				<tr>
+					<th>7:00-9:00</th>
+					<th></th>
+					<th>X</th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>9:00-11:00</th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th>X</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>11:00-13:00</th>
+					<th></th>
+					<th>X</th>
+					<th>X</th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>13:00-14:00</th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>14:00-16:00</th>
+					<th>X</th>
+					<th>X</th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th>X</th>
+					<th></th>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 
+	<div class="header-content container">
+		<h1>Asignaciones</h1>
+	</div>
 
+	<div class="header-content container">
+		<table>
+			<thead>
+				<tr>
+					<th>N°</th>
+					<th>Código</th>
+					<th>Descripción</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>1</th>
+					<th>341c6</th>
+					<th>Ingreso de nuevos empleados</th>
+				</tr>
+				<tr>
+					<th>2</th>
+					<th>563v8</th>
+					<th>Hablar con proveedores</th>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
 
 </body>
 
