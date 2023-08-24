@@ -328,7 +328,7 @@ p{
 /* <<<<<<<<<<<<<<< seccion footer >>>>>>>>>>>>>>>*/
 .footer{
 	padding: 100px 0;
-	background-color: #000000;
+	background-color: black;
 }
 .footer-content{
 	display: flex;
@@ -343,9 +343,139 @@ p{
 	font-size: 16px;
 	color: #c5c5c5;
 	display: block;
+	margin-left: 30px;
+	margin-right: 20px;
+	margin-bottom: 15px;
+	display: flex;
+	
+}
+.link .info{
+	font-size: 18px;
+	color: #F9FAFC;
 	margin-bottom: 15px;
 }
+
 .link a:hover{
     color: lightcyan;
+}
+
+/* <<<<<<<<<<<<<<< iconos >>>>>>>>>>>>>>>*/
+.icon {
+  color: white;
+  position: absolute;
+  left: 5px;
+ 
+  
+}
+
+/*-------------------------------------------------------
+>>>>>>>>>>>>>>>>> Diseño adaptable <<<<<<<<<<<<<<<<<<<<<<
+---------------------------------------------------------*/
+
+@media(max-width:991px){
+	
+	.menu{
+		padding: 30px;
+	}
+	.menu label{
+		display:initial;
+	}
+	.menu .navbar{
+		position:absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background-color: #323337;
+		display: none;
+	}
+	.menu .navbar ul li{
+		width: 100%;
+	}
+	#menu:checked ~ .navbar{
+		display: initial;
+	}
+	.header{
+		min-height: 0vh;;
+	}
+	.header-content{
+		padding: 100px 30px;
+	}
+	.header-content p{
+		padding: 0;
+	}
+	/* >>>>>>>>> seccion especies <<<<<<<<<<<<<*/
+	.zoo{
+		padding: 30;
+	}
+	.zoo-content h2{
+		padding: 0;
+	}
+	.txt-p{
+		padding: 0;
+	}
+	.zoo-group{
+		flex-direction: column;
+		margin-bottom: 0;	
+	}
+	.zoo-img{
+		display: none;
+	}
+	
+	.tickets{
+		padding: 30;
+	}
+	.tickets-content h2{
+		padding: 0;
+	}
+	.txt-p{
+		padding: 0;
+	}
+	.tickets-group{
+		flex-direction: column;
+		margin-bottom: 0;	
+	}
+	.tickets-img{
+		display: none;
+	}
+	.services{
+		padding: 30px;
+	}
+	.services-content p{
+		padding: 0;
+	}
+	.services-group{
+		flex-direction: column;
+		margin-bottom: 0; 
+	}
+	.services-1{
+		margin-bottom: 25px; 
+	}
+	.general{
+		flex-direction: column;
+	}
+	.general-1{
+		width: 100%;
+		padding: 30px;
+		text-align: center;
+	}
+	.general-2, .general-3{
+		display: none;
+	}
+	.evento{
+		padding: 30px;
+	}
+	.evento-content{
+		flex-direction: column;
+	}
+	.evento-1{
+		padding: 0;
+	}
+	.footer{
+		padding: 30px;
+	}
+	.footer-content{
+		flex-direction: column;
+		text-align: center; 
+	}
 }
 

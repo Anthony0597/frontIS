@@ -6,11 +6,49 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">   
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">   
 	<link rel="stylesheet" href="/css/estilo.css" type="text/css">
-	<title>Menu desplegable</title>
+	<title>Donaciones - Zoológico Naturaleza Viva</title>
 </head>
 <body>
-	
-	
-</body>
+    <header>
+        <h1>Zoológico Naturaleza Viva</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Donaciones</a></li>
+                <!-- Otros enlaces de navegación -->
+            </ul>
+        </nav>
+    </header>
 
+    <section class="donation-info">
+        <h2>Haz una Donación</h2>
+        <p>Tu generosidad ayuda a mantener nuestro zoológico y a conservar la vida silvestre. Agradecemos tu apoyo.</p>
+
+        <div class="donation-options">
+            <div class="anonymous-donation">
+                <h3>Donación Anónima</h3>
+                <p>Si deseas realizar una donación anónima, puedes hacerlo aquí:</p>
+                <form action="procesar_anonimo.php" method="post">
+                    <label for="amount">Monto:</label>
+                    <input type="text" name="amount" id="amount" placeholder="Ingrese el monto">
+                    <button type="submit">Donar Anónimamente</button>
+                </form>
+            </div>
+
+            <div class="registered-donation">
+                <h3>Donación como Cliente Registrado</h3>
+                <p>Si eres un cliente registrado, puedes hacer una donación desde tu cuenta:</p>
+                <form action="procesar_registrado.php" method="post">
+                    <label for="amount">Monto:</label>
+                    <input type="text" name="amount" id="amount" placeholder="Ingrese el monto">
+                    <button type="submit">Donar desde mi Cuenta</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Zoológico Naturaleza Viva - Todos los derechos reservados</p>
+    </footer>
+</body>
 </html>

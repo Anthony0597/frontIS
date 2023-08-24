@@ -9,65 +9,65 @@
 	<title>Ingreso & Registro</title>
 </head>
 <body>
-	<header class="header">
-	    <div class="regreso">
-			<a href="/inicios/principal" class="logo"> ⬅️ Inicio</a>
-		</div>
-	</header>
-    <div class="container-page" id="Container">
-        <div class="login-container" id="LoginContainer">
-            <h1 class="title">Registro</h1>
-            <form action="">
-                <div class="input-line-container">
-                    <span class="name-input">Nombres</span>
-                    <input type="text" name="1er nombre - 2do nombre" class="input-line" id="">
-                </div>
-                <div class="input-line-container">
-                    <span class="name-input">Apellidos</span>
-                    <input type="text" name="1er apellido - 2do apellido" class="input-line" id="">
-                </div>
-                <div class="input-line-container">
-                    <span class="name-input">Cédula</span>
-                    <input type="text" name="cedula" class="input-line" id="">
-                </div>
-                <div class="input-line-container">
-                    <span class="name-input">Correo electrónico</span>
-                    <input type="text" name="@correo" class="input-line" id="">
-                </div>
-                <div class="input-line-container">
-                    <span class="name-input">Número de télefono</span>
-                    <input type="text" name="+593" class="input-line" id="">
-                </div>
-                <div class="input-line-container">
-                    <span class="name-input">Nombre de usuario</span>
-                    <input type="text" name="usuario" class="input-line" id="">
-                </div>
-                <div class="input-line-container">
-                    <span class="name-input">Contraseña</span>
-                    <input type="password" name="constraseña" class="input-line" id="">
-                </div>
-                <div class="input-line-container">
-                    <span class="name-input">Confirmación de contraseña</span>
-                    <input type="password" name="escriba nuevamente su contraseña" class="input-line" id="">
-                </div>
-                <div class="input-line-container">
-                    <label><input type="checkbox">He leido y acepto los</label>
-                    <a href="#">Términos y Condiciones</a>
-                </div>
-                <input type="button" value="Registrar" class="button-login">
-                <div id="pregunta" class="link">
-                	<p>¿Ya tienes cuenta?</p>
-                </div>
-                <div id="registrar" class="link">
-                	<ul>
-						<li><a href="/inicios/ingreso">Ingresa aqui</a></li>
-					</ul>
-                </div>
-            </form>
-        </div>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="code.js"></script>
+		<header class="header">
+		    <div class="regreso">
+				<a href="/inicios/principal" class="logo"> ⬅️ Inicio</a>
+			</div>
+		</header>
+	    <div class="container-page" id="Container">
+	        <div class="login-container" id="LoginContainer">
+	            <h1 class="title">Registro</h1>
+	            <form th:action="@{/clientes/insertarCliente}" th:object="${cliente}" th:method="POST">
+	                <div class="input-line-container">
+	                    <span class="name-input">Nombres</span>
+	                    <input type="text" name="1er nombre - 2do nombre" class="input-line" id="nombre" th:field="${cliente.nombre}">
+	                </div>
+	                <div class="input-line-container">
+	                    <span class="name-input">Apellidos</span>
+	                    <input type="text" name="1er apellido - 2do apellido" class="input-line" id="apellido" th:field="${cliente.apellido}">
+	                </div>
+	                <div class="input-line-container">
+	                    <span class="name-input">Cédula</span>
+	                    <input type="text" name="cedula" class="input-line" id="cedula" th:field="${cliente.cedula}">
+	                </div>
+	                <div class="input-line-container">
+	                    <span class="name-input">Nombre de usuario</span>
+	                    <input type="text" name="usuario" class="input-line" id="usuario">
+	                </div>
+	                <div class="input-line-container">
+	                    <span class="name-input">Correo electrónico</span>
+	                    <input type="text" name="@correo" class="input-line" id="correo" th:field="${cliente.correo}">
+	                </div>
+	                <div class="input-line-container">
+	                    <span class="name-input">Número de télefono</span>
+	                    <input type="text" name="+593" class="input-line" id="telefono">
+	                </div>
+	                <div class="input-line-container">
+	                    <span class="name-input">Contraseña</span>
+	                    <input type="password" name="constraseña" class="input-line" id="contrasenia">
+	                </div>
+	                <div class="input-line-container">
+	                    <span class="name-input">Confirmación de contraseña</span>
+	                    <input type="password" name="escriba nuevamente su contraseña" class="input-line" id="confirmacion">
+	                </div>
+	                <div class="input-line-container">
+	                    <label><input type="checkbox">He leido y acepto los</label>
+	                    <a href="/inicios/terminosCondiciones">Términos y Condiciones</a>
+	                </div>
+	                <input type="submit" value="Registrar" class="button-login">
+	                <div id="pregunta" class="link">
+	                	<p>¿Ya tienes cuenta?</p>
+	                </div>
+	                <div id="registrar" class="link">
+	                	<ul>
+							<li><a href="/inicios/ingreso">Ingresa aqui</a></li>
+						</ul>
+	                </div>
+	            </form>
+	        </div>
+	    </div>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	    <script src="code.js"></script>
 </body>
 
 </html>
