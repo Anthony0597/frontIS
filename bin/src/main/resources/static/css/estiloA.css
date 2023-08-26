@@ -16,8 +16,8 @@ section[id]{
 }
 
 body{
-	background-image: url(images/fondo3.jpg);
-	background-size: cover;
+	background-image: url(images/logo_oscuro.png);
+	background-size:auto;
 	font-family: 'Poppins', sans-serif;
 }
 
@@ -103,4 +103,21 @@ nav{
 	color: white;
 	text-decoration: none;
 	padding: 10px 10px 10px 15px;
+}
+
+table{
+	width: 100%;
+	border-collapse: collapse;
+	background-color: #f2f2f2;
+}
+
+th, td{
+	padding: 8px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+th {
+	background-color: #4caf50;
+	color: white;
 }

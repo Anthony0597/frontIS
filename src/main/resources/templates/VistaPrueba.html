@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Mostrar y Ocultar Secciones</title>
+	<link rel="stylesheet" href="/css/estiloA.css">
+</head>
+
+<body>
+	<a th:href="@{/servi/mostrar-seccion}" th:if="${!mostrarSeccion}">Mostrar Sección</a>
+	<a th:href="@{/servi/ocultar-seccion}" th:if="${mostrarSeccion}">Ocultar Sección</a>
+
+	<div id="seccionAMostrar" th:classappend="${mostrarSeccion ? 'visible' : 'oculta'}">
+		Contenido de la sección que puede mostrarse u ocultarse.
+	</div>
+</body>
+
+</html>
