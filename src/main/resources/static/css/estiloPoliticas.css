@@ -23,7 +23,8 @@ header{
 }
 
 body{
-	margin: 50px; 
+	/*margin: 50px;*/ 
+	margin-top: 30px;
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
@@ -43,9 +44,11 @@ body{
 }
 
 main{
+	margin-top: 100px;
+	margin-bottom: 100px;
 	position: relative;
 	width: 600px;
-	height: auto;
+	/*height: auto;*/
 	background: transparent;
 	border: 2px solid rgba(0, 0, 0, .5);
 	display: flex;
@@ -80,7 +83,20 @@ h1{
   	font-weight: bold;
 }
 
+.btn-1{
+    display: inline-block;
+    padding: 11px 35px;
+    background-color: cadetblue;
+    color: #F9FAFC;
+    text-transform: uppercase;
+    border-radius: 20px;
+}
+.btn-1:hover{
+    background-color: darkslategrey;
+}
+
 /*>>>>>>>>>>>>>>>>>> footer <<<<<<<<<<<<<<<<<<<<<<<<<*/
+
 
 footer p {
     font-weight: bold; /* Aumentar el grosor del texto */
@@ -91,7 +107,15 @@ footer p {
     position: fixed ; /* Fijar el pie de página en la parte inferior */
     bottom: 0; /* Alinear al pie de página */
     width: 100%; /* Ancho completo */
-    background-color: #333; /* Color de fondo */
+    background: linear-gradient(
+        rgba(0,0,255,0.7),
+        rgba(0,0,0,0.7));
+}
+.inf-accept{
+	margin: 10px;
+}
+.footer-space {
+    height: 50px; /* Altura del espacio deseado */
 }
 
 .link h3{

@@ -13,11 +13,6 @@ public class PrincipalController { // VISTAS ESTÁTICAS
 		return "vistaPrincipal";
 	}
 	
-	@GetMapping("/ingreso")
-	public String ingreso() {// falta el argumento
-		return "vistaIngreso";
-	}
-	
 	@GetMapping("/membresia")
 	public String membresia() {// falta el argumento
 		return "vistaMembresia";
@@ -30,7 +25,7 @@ public class PrincipalController { // VISTAS ESTÁTICAS
 	
 	@GetMapping("/informacion")
 	public String informacion() {// falta el argumento
-		return "vistaInformacion";
+		return "vistaInformacionAnimales";
 	}
 	
 	@GetMapping("/evento1") // evento introduccion

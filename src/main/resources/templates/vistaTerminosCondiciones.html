@@ -56,12 +56,20 @@
         </section>
         
         <section class="terms-and-conditions">
-            <p>Al hacer clic en "Aceptar" durante el proceso de inicio de sesión, usted reconoce haber leído, comprendido y aceptado estos Términos y Condiciones. Si tiene alguna pregunta o inquietud, por favor contáctenos a través de los canales proporcionados en la plataforma.</p>
+            <p class="inf-accept">Al hacer clic en "Aceptar" durante el proceso de inicio de sesión, usted reconoce haber leído, comprendido y aceptado estos Términos y Condiciones. Si tiene alguna pregunta o inquietud, por favor contáctenos a través de los canales proporcionados en la plataforma.</p>
         </section>
-        
+        <button class="btn-1" onclick="cerrarVentana()">ACEPTAR</button>
         <!-- ... Más secciones de términos y condiciones ... -->
     </main>
+    
+    <script>
+		function cerrarVentana() {
+		    window.close(); // Intenta cerrar la ventana actual
+		}
+	</script>
+	
     <footer>
+    	<div class="footer-space"></div>
         <p>&copy; 2023 Zoológico Naturaleza Viva. Todos los derechos reservados.</p>
     </footer>
 </body>

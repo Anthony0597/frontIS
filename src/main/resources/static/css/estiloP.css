@@ -240,14 +240,14 @@ body{
 	text-align: center;
 }
 
-h2, h4.icon-ticket {
-    display: inline-block;
-    margin-right: 0px;
+h4.icon-ticket {
+    display: inline;
+    margin-right: 10px;
 }
 .icon-ticket{
-	padding: 0 80px;
+	padding: 0 30px;
   	background-image: url(images/ticket.png);
-  	background-size: contain;
+  	background-size: 50px;
   	background-repeat: no-repeat;
   	background-position: center;
 	width: 60px;
@@ -256,7 +256,7 @@ h2, h4.icon-ticket {
 
 .tickets-content h2{
 	font-size: 25px;
-	line-height: 70px;
+	line-height: 90px;
 	color: #F9FAFC;
 	text-transform: uppercase;
 	margin-bottom: 50px;
@@ -264,7 +264,8 @@ h2, h4.icon-ticket {
 .tickets-content p, h6{
 	font-size: 16px;
 	color: #C5C5C5;
-	margin-bottom: 10px;
+	margin-top: 5px;
+	margin-bottom: 0px;
 	padding: 0 100px;
 }
 .tickets-group{
@@ -277,11 +278,12 @@ h2, h4.icon-ticket {
 }
 .tickets-1 img{
 	width: 25px;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 }
 .tickets-1 h3{
 	color: #EACCB3;
 	font-size: 18px;
+	margin: 20px;
 }
 .tickets-1 h1{
 	color: rgb(0, 255, 128);
@@ -323,6 +325,51 @@ p{
 	font-size: 16px;
 	color: #414247;
 	margin: 25px 0 45px 0;
+}
+
+/* >>>>>>>>>>>>>>>>>>> MAPA DE ZOOLÓGICO <<<<<<<<<<<<<<<<<<<<<<<<*/
+.mapa{
+	background-color: lightgray;
+}
+.titulo{
+	font-size: 55px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.mapa-img{
+	background-image: url(images/mapaZoo.jpg);
+  	background-size: contain;
+  	background-repeat: no-repeat;
+  	background-position: center;
+	width: 1000px;
+  	height: 650px;
+  	margin: 0 auto;
+}
+
+/* >>>>>>>>>>>>>>>>>>> RECOMENDACIONES <<<<<<<<<<<<<<<<<<<<<<<<*/
+.recomendaciones h2{
+	text-align: center;
+}
+.recomendaciones div{
+	display: flex;
+	margin-bottom: 20px;
+}
+.recomendaciones li{
+	color: #333; 
+  	font-size: 15px; 
+  	list-style-type: disc; /* Viñetas redondas */
+    margin-left: 40px;
+}
+.img-recomend{
+	background-image: url(images/fondo8.jpg);
+  	background-size: contain;
+  	background-repeat: no-repeat;
+  	background-position: center;
+	width: 550px;
+  	height: 230px;
+  	margin: 0 auto;
+	
 }
 
 /* <<<<<<<<<<<<<<< seccion footer >>>>>>>>>>>>>>>*/
