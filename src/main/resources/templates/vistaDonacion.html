@@ -22,9 +22,9 @@
             <div class="anonymous-donation">
                 <h3>Donación Anónima</h3>
                 <p>Si deseas realizar una donación anónima, puedes hacerlo aquí:</p>
-                <form action="procesar_anonimo.php" method="post">
+                <form th:action="@{/donaciones/insertarDonacion}" th:object="${donacion}" th:method="POST">
                     <label for="amount">Monto:</label>
-                    <input type="text" name="amount" id="amount" placeholder="Ingrese el monto">
+                    <input type="text" name="amount" id="amount" placeholder="Ingrese el monto" th:field="${donacion.monto}">
                     <button type="submit">Donar Anónimamente</button>
                 </form>
             </div>
@@ -32,15 +32,42 @@
             <div class="registered-donation">
                 <h3>Donación como Cliente Registrado</h3>
                 <p>Si eres un cliente registrado, puedes hacer una donación desde tu cuenta:</p>
-                <form action="procesar_registrado.php" method="post">
+                <form th:action="@{/donaciones/insertarDonacion}" th:object="${donacion}" th:method="POST">
+                	<label for="amount">Donante:</label>
+                    <input type="text" name="amount" id="amount" placeholder="Ingrese su nombre" th:field="${donacion.donante}">
                     <label for="amount">Monto:</label>
-                    <input type="text" name="amount" id="amount" placeholder="Ingrese el monto">
+                    <input type="text" name="amount" id="amount" placeholder="Ingrese el monto" th:field="${donacion.monto}">
                     <button type="submit">Donar desde mi Cuenta</button>
                 </form>
             </div>
         </div>
     </section>
+    
+	<div th:if="${showWarning}" class="popup" id="popup">
+        <div class="popup-contenido">
+            <h2>¡Donación realizada con éxito!</h2>
+	        <p>Tu donación ha sido recibida y agradecemos tu generosidad.</p>
+            <button id="cerrarPopup">Cerrar</button>
+        </div>
+    </div>
+    
+    <script th:if="${showWarning}">
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener referencias a los elementos necesarios
+            var popup = document.getElementById("popup");
+            var cerrarPopup = document.getElementById("cerrarPopup");
 
+            // Mostrar la ventana emergente
+            popup.style.display = "block";
+
+            // Cerrar la ventana emergente al hacer clic en el botón "Cerrar"
+            cerrarPopup.addEventListener("click", function() {
+                popup.style.display = "none";
+            });
+        });
+    </script>
+    
+	
     <footer>
         <p>&copy; 2023 Zoológico Naturaleza Viva - Todos los derechos reservados</p>
     </footer>

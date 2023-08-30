@@ -15,7 +15,7 @@
     <div class="container-page" id="Container">
         <div class="login-container" id="LoginContainer">
             <h1 class="title">Cuenta</h1>
-            <form th:action="@{/clientes/buscarPorCorreo}" th:object="${cliente}" th:method="GET">
+            <form th:action="@{/clientes/usuario}" th:object="${cliente}" th:method="GET">
             
                 <div class="input-line-container">
                     <span class="name-input">Correo</span>
@@ -23,9 +23,9 @@
                 </div>
                 <div class="input-line-container">
                     <span class="name-input">Contraseña</span>
-                    <input type="password" name="Contraseña" class="input-line" id="contrasenia">
+                    <input type="password" name="Contraseña" class="input-line" id="contrasenia" th:field="${cliente.contrasenia}">
                 </div>
-                <input type="button" value="Ingresar" class="button-login">
+                <input type="submit" value="Ingresar" class="button-login">
                 <div id="pregunta" class="link">
                 	<p>¿No tienes cuenta?</p>
                 </div>
@@ -38,6 +38,29 @@
         </div>
     </div>
     
+    <div th:if="${showWarning}" class="popup" id="popup">
+        <div class="popup-contenido">
+            <h2>¡Advertencia!</h2>
+            <p>El Correo o la Contraseña introducidad es INCORRECTA!!</p>
+            <button id="cerrarPopup">Cerrar</button>
+        </div>
+    </div>
+    
+    <script th:if="${showWarning}">
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener referencias a los elementos necesarios
+            var popup = document.getElementById("popup");
+            var cerrarPopup = document.getElementById("cerrarPopup");
+
+            // Mostrar la ventana emergente
+            popup.style.display = "block";
+
+            // Cerrar la ventana emergente al hacer clic en el botón "Cerrar"
+            cerrarPopup.addEventListener("click", function() {
+                popup.style.display = "none";
+            });
+        });
+    </script>
     
 </body>
 

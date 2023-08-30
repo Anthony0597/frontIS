@@ -1,7 +1,8 @@
 package com.example.demo.repository.modelo;
 
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,7 +31,7 @@ public class Cliente {
 	private String cedula;
 	
 	@Column(name = "clte_fechaNacimiento")
-	private LocalDate fechaN;
+	private LocalDateTime fechaN;
 
 	@Column(name = "clte_correo")
 	private String correo;
@@ -82,11 +83,11 @@ public class Cliente {
 		this.cedula = cedula;
 	}
 
-	public LocalDate getFechaN() {
+	public LocalDateTime getFechaN() {
 		return fechaN;
 	}
 
-	public void setFechaN(LocalDate fechaN) {
+	public void setFechaN(LocalDateTime fechaN) {
 		this.fechaN = fechaN;
 	}
 

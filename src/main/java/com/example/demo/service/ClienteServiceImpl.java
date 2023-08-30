@@ -69,4 +69,10 @@ public class ClienteServiceImpl implements IClienteService{
 		}
 	}
 
+	@Override
+	public Cliente buscarClienteCorreo(String correo) {
+		// TODO Auto-generated method stub
+		return this.clienteRepository.buscarCorreo(correo);
+	}
+
 }

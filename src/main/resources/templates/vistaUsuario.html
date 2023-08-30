@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/estiloP.css">
+
+<head>   
+	<meta charset="UTF-8">   
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">   
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">   
+	<link rel="stylesheet" href="/css/estiloUsuario.css" type="text/css">
+	<title>Perfil de Usuario VIP</title>
 </head>
 <body>
-    <header class="header">
+	<header class="header">
 		<div class="menu container">
 			<a href="#inicio" class="logo"></a>
 			<input type="checkbox" id="menu"/>
@@ -19,31 +20,38 @@
 				<ul>
 					<li><a href="#">Servicios</a>
 						<ul class="menu-vertical">
-							<li><a href="/inicios/membresia"> Membresía</a></li>
 							<li><a href="#tickets"> Tickets y Puntos de venta</a></li>
 							<li><a href="#evento"> Eventos</a></li>
 						</ul>
 					</li>
 					<li><a href="/donaciones/donacion">Donaciones</a>
 					</li>
-					<li><a href="/clientes/ingreso">Iniciar sesión</a>
+					<li><a href="/inicios/principal" class="cerrar-sesion">Cerrar sesión</a>
 					</li>
 				</ul>
 			</nav>
 		</div>
-		<div class="header-content container" id="inicio">
-			<h1>Zoológico "Naturaleza Viva"</h1>
-			<p>
-				En "Naturaleza Viva", estamos comprometidos con la educación ambiental 
-				y la sensibilización sobre la importancia de preservar la biodiversidad. 
-				Creemos que cada paso que damos hacia la comprensión y protección de los 
-				animales contribuye a un mundo más consciente y sostenible.
-			</p>
-		</div>
+		
+	    <div class="profile-container">
+	    	<form th:action="@{/clientes/usuario}" th:object="${cliente}" th:method="GET">
+		        <ion-icon name="contact" class="icon-client"></ion-icon>
+		        <div class="profile-name"><span th:text="${cliente.nombre}"></span> <span th:text="${cliente.apellido}"></span> - Cliente VIP</div>
+		        <div class="profile-info">
+		            <p>Correo: <span th:text="${cliente.correo}"></span></p>
+		            <p>Fecha de Nacimiento: <span th:text="${cliente.fechaN}"></span></p>
+		            <p>Teléfono: <span th:text="${cliente.telefono}"></span></p>
+		        </div>
+		        <div class="discounts-container">
+		            <h3>Descuentos y Promociones VIP</h3>
+		            <div class="discount">10% de descuento en entradas al zoológico</div>
+		            <div class="discount">Acceso exclusivo a eventos especiales</div>
+		            <div class="discount">Promociones en la tienda de souvenirs</div>
+		        </div>
+	        </form>
+	    </div>
 	</header>
 	
 	<section class="zoo">
-		<img class="zoo-img" src="images/bg2.png" alt="">
 		<div class="zoo-content conteiner">
 			<h2>Introducción al Zoológico</h2>
 			<p class="txt-p">
@@ -117,7 +125,7 @@
 				personas, un descuento del 20% para grupos con más de veinte personas, y además 
 				un descuento del 5% si visitas el zoológico en el día de tu cumpleaños.
 			</p>
-			<h2> - - - - - - - - - - - Puntos de Venta - - - - - - - - - - -</h2>
+			<h2>- - - - - - - - - - - Puntos de Venta - - - - - - - - - - -</h2>
 			<div class="tickets-group">
 		        <div class="tickets-1">
 		            <h3>Tienda Principal</h3>
@@ -228,7 +236,8 @@
 			</div>
 		</div>
 	</footer>
-	
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    
+	<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
+
 </html>
