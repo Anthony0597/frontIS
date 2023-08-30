@@ -79,4 +79,10 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 		return this.empleadoRepository.buscar();
 	}
 
+	@Override
+	public Empleado buscarCorreo(String correo) {
+		// TODO Auto-generated method stub
+		return this.empleadoRepository.buscarCorreo(correo);
+	}
+
 }

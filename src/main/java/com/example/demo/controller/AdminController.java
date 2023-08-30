@@ -35,7 +35,7 @@ import com.example.demo.service.IProveedorService;
 @Controller
 @RequestMapping("/servicio")
 public class AdminController {
-	
+	private static Empleado user;
 	@Autowired
 	private EmpleadoService empService;
 	@Autowired
@@ -91,6 +91,7 @@ public class AdminController {
 	
 	@GetMapping("/admin")
 	public String principal(Model modelo) {
+		user=empService.buscarCorreo(emp.getCorreo());
 		if(secciones.get("NMostrar")) {
 			empleados = empService.buscarTodos();
 		}
@@ -124,6 +125,7 @@ public class AdminController {
 		if(secciones.get("Inicio")) {
 			proveedores = new ArrayList<>();
 		}
+		modelo.addAttribute("usuario", user);
 		modelo.addAttribute("empleado",emp);
 		modelo.addAttribute("empleados",empleados);
 		modelo.addAttribute("animal",ani);

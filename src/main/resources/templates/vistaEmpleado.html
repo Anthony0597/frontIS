@@ -1,130 +1,822 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Empleado</title>
 	<link rel="stylesheet" href="/css/estiloA.css">
 </head>
 
 <body>
 	<header class="header">
-		<div class="header-content container" id="inicio">
+		<div class="header-h1 container" id="inicio">
 			<h1>Zoológico "Naturaleza Viva"</h1>
 		</div>
 	</header>
 	<div>
 		<nav>
 			<ul class="menu-horizontal">
-				<h1 href="#">Bienvenido "Nombre empleado"</h1>
-				<li><a href="#">Historial de asignaciones</a></li>
-				<li><a href="#">Mensajes</a></li>
+				<h1>Bienvenido <span th:text="${empleado.nombre}"></span></h1>
+				<li><a th:href="@{mostrar-seccion/{seccion}(seccion='Inicio')}">Inicio</a></li>
+				<li><a>Nómina</a>
+					<ul class="menu-vertical">
+						<li><a th:href="@{mostrar-seccion/{seccion}(seccion='NIngresar')}">Registrar Empleado</a></li>
+						<li><a th:href="@{mostrar-seccion/{seccion}(seccion='NMostrar')}">Mostrar Empeados</a></li>
+					</ul>
+				</li>
+				<li><a>Animales</a>
+					<ul class="menu-vertical">
+						<li><a th:href="@{mostrar-seccion/{seccion}(seccion='AIngresar')}">Registrar Animal</a></li>
+						<li><a th:href="@{mostrar-seccion/{seccion}(seccion='AMostrar')}">Mostrar Animales</a></li>
+					</ul>
+				</li>
+				<li><a>Proveedores</a>
+					<ul class="menu-vertical">
+						<li><a th:href="@{mostrar-seccion/{seccion}(seccion='PIngresar')}">Registrar Proveedor</a></li>
+						<li><a th:href="@{mostrar-seccion/{seccion}(seccion='PMostrar')}">Mostrar Proveedores</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Inventario</a>
+					<ul class="menu-vertical">
+						<li><a th:href="@{mostrar-seccion/{seccion}(seccion='IIngresar')}">Registrar Producto</a></li>
+						<li><a th:href="@{mostrar-seccion/{seccion}(seccion='IMostrar')}">Mostrar Inventario</a></li>
+					</ul>
+				</li>
 			</ul>
 		</nav>
 	</div>
 
-	<div class="header-content container">
+	<div class="header-content container" id="Horario" th:classappend="${secciones[Inicio] ? 'visible' : 'oculta'}">
 		<h1>Horario</h1>
-	</div>
 
-	<div class="header-content container">
-		<table>
-			<thead>
-				<tr>
-					<th>Hora</th>
-					<th>Lunes</th>
-					<th>Martes</th>
-					<th>Miércoles</th>
-					<th>Jueves</th>
-					<th>Viernes</th>
-					<th>Sábado</th>
-					<th>Domingo</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th>7:00-9:00</th>
-					<th>X</th>
-					<th>X</th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-				</tr>
-				<tr>
-					<th>9:00-11:00</th>
-					<th></th>
-					<th></th>
-					<th>X</th>
-					<th>X</th>
-					<th></th>
-					<th></th>
-					<th></th>
-				</tr>
-				<tr>
-					<th>11:00-13:00</th>
-					<th></th>
-					<th>X</th>
-					<th>X</th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th>X</th>
-				</tr>
-				<tr>
-					<th>13:00-14:00</th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-				</tr>
-				<tr>
-					<th>14:00-16:00</th>
-					<th></th>
-					<th>X</th>
-					<th>X</th>
-					<th></th>
-					<th></th>
-					<th>X</th>
-					<th></th>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+		<div class="header-content container">
+			<table>
+				<thead>
+					<tr>
+						<th>Hora</th>
+						<th>Lunes</th>
+						<th>Martes</th>
+						<th>Miércoles</th>
+						<th>Jueves</th>
+						<th>Viernes</th>
+						<th>Sábado</th>
+						<th>Domingo</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="centrado">7:00-9:00</td>
+						<td class="centrado"></td>
+						<td class="centrado">X</td>
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+					</tr>
+					<tr>
+						<td class="centrado">9:00-11:00</td>
+						<td class="centrado">
+							</tdclass="centrado">
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+						<td class="centrado">X</td>
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+					</tr>
+					<tr>
+						<td class="centrado">11:00-13:00</td>
+						<td class="centrado"></td>
+						<td class="centrado">X</td>
+						<td class="centrado">X</td>
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+					</tr>
+					<tr>
+						<td class="centrado">13:00-14:00</td>
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+					</tr>
+					<tr>
+						<td class="centrado">14:00-16:00</td>
+						<td class="centrado">X</td>
+						<td class="centrado">X</td>
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+						<td class="centrado"></td>
+						<td class="centrado">X</td>
+						<td class="centrado"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
-	<div class="header-content container">
 		<h1>Asignaciones</h1>
+		<div class="header-content container">
+			<table>
+				<thead>
+					<tr>
+						<th>N°</th>
+						<th>Código</th>
+						<th>Descripción</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>341c6</td>
+						<td>Ingreso de nuevos empleados</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>563v8</td>
+						<td>Hablar con proveedores</td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
 	</div>
 
-	<div class="header-content container">
+	<!--Empleados-->
+
+	<div class="header-content container" id="NIngresar"
+		th:classappend="${secciones[NIngresar] ? 'visible' : 'oculta'}">
+		<form th:action="@{empleado/insertar}" th:object="${empleado}" th:method="POST">
+			<h1>Datos Empleado</h1>
+			<table>
+				<tr>
+					<td class="centrado">Nombre:</td>
+					<td><input type="text" th:field="${empleado.nombre}"></td>
+				</tr>
+				<tr>
+					<td class="centrado">Apellido:</td>
+					<td><input type="text" th:field="${empleado.apellido}"></td>
+				</tr>
+				<tr>
+					<td class="centrado">Cedula:</td>
+					<td><input type="text" th:field="${empleado.cedula}"></td>
+				</tr>
+				<tr>
+					<td class="centrado">Fecha de nacimiento:</td>
+					<td><input type="date" th:field="${empleado.fechaNacimiento}"></td>
+				</tr>
+				<tr>
+					<td class="centrado">Email:</td>
+					<td><input type="email" th:field="${empleado.correo}"></td>
+				</tr>
+				<tr>
+					<td class="centrado">Teléfono:</td>
+					<td><input type="text" th:field="${empleado.telefono}"></td>
+				</tr>
+				<tr>
+					<td class="centrado">Cargo</td>
+					<td>
+						<select th:field="${empleado.tipoCargo}">
+							<option th:each="tipo : ${T(com.example.demo.repository.modelo.TipoCargo).values()}"
+								th:value="${tipo}" th:text="${tipo}" />
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Siguiente" class="inp-estilo"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+
+	<div class="header-content container" id="NContrato"
+		th:classappend="${secciones[NContrato] ? 'visible' : 'oculta'}">
+		<form th:action="@{empleado/contrato}" th:object="${contrato}" th:method="POST">
+			<h1>Datos Contrato</h1>
+			<table>
+				<tr>
+					<td class="centrado">Número:</td>
+					<td><input type="text" th:field="${contrato.numero}">
+					</td>
+				</tr>
+				<tr>
+					<td class="centrado">Fecha de Inicio:</td>
+					<td><input type="date" th:field="${contrato.fechaInicio}">
+					</td>
+				</tr>
+				<tr>
+					<td class="centrado">Fecha de Fin:</td>
+					<td><input type="date" th:field="${contrato.fechaFinalizacion}">
+					</td>
+				</tr>
+				<tr>
+					<td class="centrado">Salario:</td>
+					<td><input type="number" th:field="${contrato.sueldo}"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Registrar" class="inp-estilo"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<div class="header-content container" id="NMostrar" th:classappend="${secciones[NMostrar] ? 'visible' : 'oculta'}">
 		<table>
 			<thead>
 				<tr>
-					<th>N°</th>
-					<th>Código</th>
-					<th>Descripción</th>
+					<th>Cedula</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Contrato</th>
+					<th>Teléfono</th>
+					<th>N° asignaciones</th>
+					<th></th>
+					<th></th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<th>1</th>
-					<th>4253c6</th>
-					<th>Asignación 1</th>
+				<tr th:each="empleadoLs:${empleados}">
+					<td th:text="${empleadoLs.cedula}"></td>
+					<td th:text="${empleadoLs.nombre}"></td>
+					<td th:text="${empleadoLs.apellido}"></td>
+					<td th:text="${empleadoLs.contrato_empleados[(empleadoLs.contrato_empleados.size)-1].numero}"></td>
+					<td th:text="${empleadoLs.telefono}"></td>
+					<td th:text="${empleadoLs.asignaciones.size}"></td>
+					<td>
+						<form th:action="@{empleado/buscarId/{id}(id=${empleadoLs.id})}" th:method="Get">
+							<input type="submit" value="Editar" class="inp-estilo">
+						</form>
+					</td>
+					<td>
+						<form th:action="@{contrato/buscarId/{id}(id=${empleadoLs.id})}" th:method="Get">
+							<input type="submit" value="Nuevo Contrato" class="inp-estilo">
+						</form>
+					</td>
+					<td>
+						<form th:action="@{asignacion/buscarId/{id}(id=${empleadoLs.id})}" th:method="Get">
+							<input type="submit" value="Nueva asignación" class="inp-estilo">
+						</form>
+					</td>
 				</tr>
-				<tr>
-					<th>2</th>
-					<th>6345c3</th>
-					<th>Asignación2</th>
-				</tr>
-
 			</tbody>
 		</table>
+	</div>
+
+	<div class="header-content container" id="NModificar"
+		th:classappend="${secciones[NModificar] ? 'visible' : 'oculta'}">
+		<form th:action="@{empleado/modificar/{id}(id=${empleado.id})}" th:object="${empleado}" th:method="PUT">
+			<table>
+				<tr>
+					<td class="centrado">Nombre:</td>
+					<td><input type="text" th:field="${empleado.nombre}"></td>
+				</tr>
+				<tr>
+					<td class="centrado">Apellido:</td>
+					<td><input type="text" th:field="${empleado.apellido}"></td>
+				</tr>
+				<tr>
+					<td class="centrado">Cedula:</td>
+					<td><input type="text" th:field="${empleado.cedula}"></td>
+				</tr>
+				<tr>
+					<td class="centrado">Fecha de nacimiento:</td>
+					<td><input type="date" th:field="${empleado.fechaNacimiento}"></td>
+				</tr>
+				<tr>
+					<td class="centrado">Email:</td>
+					<td><input type="email" id="email" th:field="${empleado.correo}"></td>
+				</tr>
+				<tr>
+					<td class="centrado">Teléfono:</tdclass="centrado">
+					<td><input type="text" id="telefono" th:field="${empleado.telefono}"></td>
+				</tr>
+				<td class="centrado">Cargo</td>
+				<td>
+					<select th:field="${empleado.tipoCargo}">
+						<option th:each="tipo : ${T(com.example.demo.repository.modelo.TipoCargo).values()}"
+							th:value="${tipo}" th:text="${tipo}" />
+					</select>
+				</td>
+				<tr>
+					<td class="centrado"><a th:href="@{mostrar-seccion/{seccion}(seccion='NMostrar')}"
+							class="boton-estilo">Regresar</a> </td>
+					<td><input type="submit" value="Actualizar" class="inp-estilo"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<div class="header-content container" id="NAsignacion"
+		th:classappend="${secciones[NAsignacion] ? 'visible' : 'oculta'}">
+		<form th:action="@{empleado/asignacion}" th:object="${asignacion}" th:method="POST">
+			</table>
+			<h1>Datos Asignación</h1>
+			<table>
+				<tr>
+					<td class="centrado">Detalle:</td>
+					<td><textarea th:field="${asignacion.detalle}"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="centrado">Estado:</td>
+					<td><input type="checkbox" th:field="${asignacion.estado}">
+					</td>
+				</tr>
+				<tr>
+					<td class="centrado"><a th:href="@{mostrar-seccion/{seccion}(seccion='NMostrar')}"
+							class="boton-estilo">Regresar</a> </td>
+					<td><input type="submit" value="Registrar" class="inp-estilo"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+
+	<!--Animales-->
+
+	<div class="header-content container" id="AIngresar"
+		th:classappend="${secciones[AIngresar] ? 'visible' : 'oculta'}">
+		<form th:action="@{animal/insertar}" th:object="${animal}" th:method="POST">
+			<h1>Datos del animal</h1>
+			<table>
+
+				<tr>
+					<td>Nombre Científico:</td>
+					<td><input type="text" th:field="${animal.nombreCientifico}"></td>
+				</tr>
+				<tr>
+					<td>Nombre común:</td>
+					<td><input type="text" th:field="${animal.nombreComun}"></td>
+				</tr>
+				<tr>
+					<td>Código de registro:</td>
+					<td><input type="text" th:field="${animal.codigoRegistro}"></td>
+				</tr>
+				<tr>
+					<td>Edad:</td>
+					<td><input type="text" th:field="${animal.edad}"></td>
+				</tr>
+				<tr>
+					<td>Peso:</td>
+					<td><input type="number" th:field="${animal.peso}"></td>
+				</tr>
+				<tr>
+					<td>Dieta:</td>
+					<td><textarea th:field="${animal.dieta}"></textarea></td>
+				</tr>
+				<tr>
+					<td>Comportamiento:</td>
+					<td><textarea th:field="${animal.comportamineto}"></textarea></td>
+				</tr>
+				<tr>
+					<td>Estado:</td>
+					<td><input type="text" th:field="${animal.estado}"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Registrar" class="inp-estilo"></td>
+				</tr>
+
+			</table>
+		</form>
+	</div>
+
+	<div class="header-content container" id="AMostrar" th:classappend="${secciones[AMostrar] ? 'visible' : 'oculta'}">
+		<table>
+			<thead>
+				<tr>
+					<th>Código de registro</th>
+					<th>Nombre Científico</th>
+					<th>Nombre común</th>
+					<th>Edad</th>
+					<th>Peso</th>
+					<th>Estado</th>
+					<th>N° Citas</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="animalLs:${animales}">
+					<td th:text="${animalLs.codigoRegistro}"></td>
+					<td th:text="${animalLs.nombreCientifico}"></td>
+					<td th:text="${animalLs.nombreComun}"></td>
+					<td th:text="${animalLs.edad}"></td>
+					<td th:text="${animalLs.peso}"></td>
+					<td th:text="${animalLs.estado}"></td>
+					<td th:text="${animalLs.historialMedico.size}"></td>
+					<td>
+						<form th:action="@{animal/buscarId/{id}(id=${animalLs.id})}" th:method="Get">
+							<input type="submit" value="Editar" class="inp-estilo">
+						</form>
+					</td>
+					<td>
+						<form th:action="@{historial/buscarId/{id}(id=${animalLs.id})}" th:method="Get">
+							<input type="submit" value="Agendar cita" class="inp-estilo">
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="header-content container" id="AModificar"
+		th:classappend="${secciones[AModificar] ? 'visible' : 'oculta'}">
+		<form th:action="@{animal/modificar/{id}(id=${animal.id})}" th:object="${animal}" th:method="PUT">
+			<h1>Datos del animal</h1>
+			<table>
+
+				<tr>
+					<td>Nombre Científico:</td>
+					<td><input type="text" th:field="${animal.nombreCientifico}"></td>
+				</tr>
+				<tr>
+					<td>Nombre común:</td>
+					<td><input type="text" th:field="${animal.nombreComun}"></td>
+				</tr>
+				<tr>
+					<td>Código de registro:</td>
+					<td><input type="text" th:field="${animal.codigoRegistro}"></td>
+				</tr>
+				<tr>
+					<td>Edad:</td>
+					<td><input type="text" th:field="${animal.edad}"></td>
+				</tr>
+				<tr>
+					<td>Peso:</td>
+					<td><input type="number" th:field="${animal.peso}"></td>
+				</tr>
+				<tr>
+					<td>Dieta:</td>
+					<td><textarea th:field="${animal.dieta}"></textarea></td>
+				</tr>
+				<tr>
+					<td>Comportamiento:</td>
+					<td><textarea th:field="${animal.comportamineto}"></textarea></td>
+				</tr>
+				<tr>
+					<td>Estado:</td>
+					<td><input type="text" th:field="${animal.estado}"></td>
+				</tr>
+				<tr>
+					<td class="centrado"><a th:href="@{mostrar-seccion/{seccion}(seccion='AMostrar')}"
+							class="boton-estilo">Regresar</a> </td>
+					<td><input type="submit" value="Actualizar" class="inp-estilo"></td>
+				</tr>
+
+			</table>
+		</form>
+	</div>
+
+	<div class="header-content container" id="AHistorial"
+		th:classappend="${secciones[AHistorial] ? 'visible' : 'oculta'}">
+		<form th:action="@{animal/historial}" th:object="${historial}" th:method="POST">
+			</table>
+			<h1>Datos Cita</h1>
+			<table>
+				<tr>
+					<td class="centrado">Código:</td>
+					<td><input type="text" th:field="${historial.codigoAnimal}"></td>
+				</tr>
+				<tr>
+					<td class="centrado">Número de historial:</td>
+					<td><input type="text" th:field="${historial.numeroHistorial}"></td>
+				</tr>
+				<tr>
+					<td class="centrado">Veterinario:</td>
+					<td><input type="text" th:field="${historial.veterinario}"></td>
+				</tr>
+				<tr>
+					<td class="centrado">Detalle:</td>
+					<td><textarea th:field="${historial.detalle}"></textarea></td>
+				</tr>
+				<tr>
+					<td class="centrado">Fecha cita:</td>
+					<td><input type="date" th:field="${historial.fechaConsulta}"></td>
+				</tr>
+				<tr>
+					<td class="centrado">Fecha siguiente cita:</td>
+					<td><input type="date" th:field="${historial.fechaProximaCita}"></td>
+				</tr>
+				<tr>
+					<td class="centrado"><a th:href="@{mostrar-seccion/{seccion}(seccion='AMostrar')}"
+							class="boton-estilo">Regresar</a> </td>
+					<td><input type="submit" value="Registrar" class="inp-estilo"></td>
+				</tr>
+			</table>
+		</form>
+
+	</div>
+
+
+	<!--Proveedores-->
+
+	<div class="header-content container" id="PIngresar"
+		th:classappend="${secciones[PIngresar] ? 'visible' : 'oculta'}">
+		<form th:action="@{proveedor/insertar}" th:object="${proveedor}" th:method="POST">
+			<h1>Datos del proveedor</h1>
+			<table>
+
+				<tr>
+					<td>Nombre Empresa:</td>
+					<td><input type="text" th:field="${proveedor.nombreEmpresa}"></td>
+				</tr>
+				<tr>
+					<td>Teléfono:</td>
+					<td><input type="text" th:field="${proveedor.telefono}"></td>
+				</tr>
+				<tr>
+					<td>Correo:</td>
+					<td><input type="email" th:field="${proveedor.correoElectronico}"></td>
+				</tr>
+				<tr>
+					<td>Tiempo de entrega:</td>
+					<td><input type="number" th:field="${proveedor.tiempoEntrega}"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Siguiente" class="inp-estilo"></td>
+				</tr>
+
+			</table>
+		</form>
+	</div>
+
+	<div class="header-content container" id="PContrato"
+		th:classappend="${secciones[PContrato] ? 'visible' : 'oculta'}">
+		<form th:action="@{proveedor/contrato}" th:object="${contratop}" th:method="POST">
+			<h1>Datos Contrato</h1>
+			<table>
+				<tr>
+					<td class="centrado">Número:</td>
+					<td><input type="text" th:field="${contratop.numero}">
+					</td>
+				</tr>
+				<tr>
+					<td class="centrado">Fecha de Inicio:</td>
+					<td><input type="date" th:field="${contratop.fechaInicio}">
+					</td>
+				</tr>
+				<tr>
+					<td class="centrado">Fecha de Fin:</td>
+					<td><input type="date" th:field="${contratop.fechaFinalizacion}">
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Registrar" class="inp-estilo"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<div class="header-content container" id="PMostrar" th:classappend="${secciones[PMostrar] ? 'visible' : 'oculta'}">
+		<table>
+			<thead>
+				<tr>
+					<th>Nombre Empresa</th>
+					<th>Correo</th>
+					<th>Contrato</th>
+					<th>Teléfono</th>
+					<th>N° productos</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="proveedorLs:${proveedores}">
+					<td th:text="${proveedorLs.nombreEmpresa}"></td>
+					<td th:text="${proveedorLs.correoElectronico}"></td>
+					<td th:text="${proveedorLs.contrato_proveedores.numero}"></td>
+					<td th:text="${proveedorLs.telefono}"></td>
+					<td th:text="${proveedorLs.listaProductos.size}"></td>
+					<td>
+						<form th:action="@{proveedor/buscarId/{id}(id=${proveedorLs.id})}" th:method="Get">
+							<input type="submit" value="Editar" class="inp-estilo">
+						</form>
+					</td>
+					<td>
+						<form th:action="@{contratoP/buscarId/{id}(id=${proveedorLs.id})}" th:method="Get">
+							<input type="submit" value="Actualizar Contrato" class="inp-estilo">
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="header-content container" id="PModificar"
+		th:classappend="${secciones[PModificar] ? 'visible' : 'oculta'}">
+		<form th:action="@{proveedor/modificar/{id}(id=${proveedor.id})}" th:object="${proveedor}" th:method="PUT">
+			<table>
+
+				<tr>
+					<td>Nombre Empresa:</td>
+					<td><input type="text" th:field="${proveedor.nombreEmpresa}"></td>
+				</tr>
+				<tr>
+					<td>Teléfono:</td>
+					<td><input type="text" th:field="${proveedor.telefono}"></td>
+				</tr>
+				<tr>
+					<td>Correo:</td>
+					<td><input type="email" th:field="${proveedor.correoElectronico}"></td>
+				</tr>
+				<tr>
+					<td>Tiempo de entrega:</td>
+					<td><input type="number" th:field="${proveedor.tiempoEntrega}"></td>
+				</tr>
+				<tr>
+					<td class="centrado"><a th:href="@{mostrar-seccion/{seccion}(seccion='PMostrar')}"
+							class="boton-estilo">Regresar</a> </td>
+					<td><input type="submit" value="Actualizar" class="inp-estilo"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<!--producto-->
+
+	<div class="header-content container" id="IIngresar"
+		th:classappend="${secciones[IIngresar] ? 'visible' : 'oculta'}">
+		<form th:action="@{producto/insertar}" th:object="${producto}" th:method="POST">
+			<h1>Datos del producto</h1>
+			<table>
+
+				<tr>
+					<td>Codigo:</td>
+					<td><input type="text" th:field="${producto.codigoId}"></td>
+				</tr>
+				<tr>
+					<td>Nombre:</td>
+					<td><input type="text" th:field="${producto.nombre}"></td>
+				</tr>
+				<tr>
+					<td>Stock:</td>
+					<td><input type="number" th:field="${producto.stock}"></td>
+				</tr>
+				<tr>
+					<td>Detalle:</td>
+					<td><textarea th:field="${producto.descripcion}"></textarea></td>
+				</tr>
+				<tr>
+					<td>Proveedor:</td>
+					<td>
+						<select name="proveedorId">
+							<option value="">Seleccione un proveedor</option>
+							<option th:each="proveedorLs : ${proveedores}" th:value="${proveedorLs.id}"
+								th:text="${proveedorLs.nombreEmpresa}" />
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Registrar" class="inp-estilo"></td>
+				</tr>
+
+			</table>
+		</form>
+	</div>
+
+	<div class="header-content container" id="IMostrar" th:classappend="${secciones[IMostrar] ? 'visible' : 'oculta'}">
+		<table>
+			<thead>
+				<tr>
+					<th>Código</th>
+					<th>Nombre</th>
+					<th>Proveedor</th>
+					<th>Descripción</th>
+					<th>Stock</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="productoLs:${productos}">
+					<td th:text="${productoLs.codigoId}"></td>
+					<td th:text="${productoLs.nombre}"></td>
+					<td th:text="${productoLs.proveedor.nombreEmpresa}"></td>
+					<td th:text="${productoLs.descripcion}"></td>
+					<td th:text="${productoLs.stock}"></td>
+					<td>
+						<form th:action="@{producto/buscarId/{id}(id=${productoLs.codigoId})}" th:method="Get">
+							<input type="submit" value="Editar" class="inp-estilo">
+						</form>
+					</td>
+					<td>
+						<form th:action="@{stock/buscarId/{id}(id=${productoLs.codigoId})}" th:method="Get">
+							<input type="submit" value="sumar/restar stock" class="inp-estilo">
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="header-content container" id="IModificar"
+		th:classappend="${secciones[IModificar] ? 'visible' : 'oculta'}">
+		<form th:action="@{producto/modificar/{id}(id=${producto.codigoId})}" th:object="${producto}" th:method="PUT">
+			<table>
+
+				<tr>
+					<td>Codigo:</td>
+					<td><span th:text="${producto.codigoId}"></span></td>
+					<input type="hidden" th:field="${producto.codigoId}" name="codigoId" />
+				</tr>
+				<tr>
+					<td>Nombre:</td>
+					<td><input type="text" th:field="${producto.nombre}"></td>
+				</tr>
+				<tr>
+					<td>Stock:</td>
+					<td><span th:text="${producto.stock}"></span></td>
+					<input type="hidden" th:field="${producto.stock}" name="stock" />
+				</tr>
+				<tr>
+					<td>Detalle:</td>
+					<td><textarea th:field="${producto.descripcion}"></textarea></td>
+				</tr>
+				<tr>
+					<td>Proveedor:</td>
+					<td>
+						<select name="proveedorId">
+							<option value="">Seleccione un proveedor</option>
+							<option th:each="proveedorLs : ${proveedores}" th:value="${proveedorLs.id}"
+								th:text="${proveedorLs.nombreEmpresa}" />
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="centrado"><a th:href="@{mostrar-seccion/{seccion}(seccion='IMostrar')}"
+							class="boton-estilo">Regresar</a> </td>
+					<td><input type="submit" value="Actualizar" class="inp-estilo"></td>
+				</tr>
+
+			</table>
+		</form>
+	</div>
+	
+	<div class="header-content container" id="IStock"
+		th:classappend="${secciones[IStock] ? 'visible' : 'oculta'}">
+		<form th:action="@{stock/modificar/{id}(id=${producto.codigoId})}" th:object="${producto}" th:method="PUT">
+			<table>
+
+				<tr>
+					<td>Codigo:</td>
+					<td><span th:text="${producto.codigoId}"></span></td>
+					<input type="hidden" th:field="${producto.codigoId}" name="codigoId" />
+				</tr>
+				<tr>
+					<td>Nombre:</td>
+					<td th:text="${producto.nombre}"></td>
+				</tr>
+				<tr>
+					<td>Stock Existente:</td>
+					<td th:text="${producto.stock}"></td>
+				</tr>
+				<tr>
+					<td>Añadir/Quitar:</td>
+					<td><input type="number" name="nuevoStock" value="0"></td>
+				</tr>
+				<tr>
+					<td class="centrado"><a th:href="@{mostrar-seccion/{seccion}(seccion='IMostrar')}"
+							class="boton-estilo">Regresar</a> </td>
+					<td><input type="submit" value="Actualizar" class="inp-estilo"></td>
+				</tr>
+
+			</table>
+		</form>
+	</div>
+
+	<div class="header-content container" id="IError"
+		th:classappend="${secciones[IError] ? 'visible' : 'oculta'}">
+		
+			<table>
+
+				<tr>
+					<td>Error al intentar modificar el stock del producto</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td class="centrado"><a th:href="@{mostrar-seccion/{seccion}(seccion='IMostrar')}"
+							class="boton-estilo">Regresar</a> </td>
+				</tr>
+				
+			</table>
 	</div>
 
 </body>
