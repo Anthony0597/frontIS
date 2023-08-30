@@ -25,8 +25,6 @@ public class Donacion {
 	
 	@Column(name = "dona_monto")
 	private BigDecimal monto ;
-
-	
 	//getters y setters
 	
 	@Override

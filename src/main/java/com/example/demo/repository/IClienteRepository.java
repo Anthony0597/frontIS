@@ -12,4 +12,10 @@ public interface IClienteRepository {
 	public void eliminarId(Integer id);
 	public List<Cliente> verListaClientesVIP(); 
 
+	public Cliente buscarPorNumeroCedula(String cedula);
+	// BUSCAR POR c
+	public Cliente buscarCorreo(String correo);
+
+
+
 }

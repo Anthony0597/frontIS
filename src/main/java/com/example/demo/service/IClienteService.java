@@ -11,5 +11,8 @@ public interface IClienteService {
 	public Cliente buscarClienteID(Integer id);
 	public void borrarClienteId(Integer id);
 	public List<Cliente> mostrarListaClientesVIP(); 
+	// VERIFICAR USUARIO
+	public Boolean autenticar(String correo, String pass);
+
 	
 }

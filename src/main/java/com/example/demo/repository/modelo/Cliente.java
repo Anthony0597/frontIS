@@ -1,7 +1,7 @@
 package com.example.demo.repository.modelo;
 
-import java.time.LocalDateTime;
 
+import java.time.LocalDate;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,23 +30,30 @@ public class Cliente {
 	private String cedula;
 	
 	@Column(name = "clte_fechaNacimiento")
-	private LocalDateTime fechaN;
-	
+	private LocalDate fechaN;
+
 	@Column(name = "clte_correo")
 	private String correo;
 	
+
+	@Column(name = "clte_telefono")
+	private String telefono;
+
+	@Column(name = "clie_contrasenia")
+	private String contrasenia;
+	
 //getter y setters
 
-	@Override
+@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula
-				+ ", fechaN=" + fechaN + ", correo=" + correo + "]";
+				+ ", fechaN=" + fechaN + ", correo=" + correo + ", telefono=" + telefono + ", contrasenia="
+				+ contrasenia + "]";
 	}
 
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -75,11 +82,11 @@ public class Cliente {
 		this.cedula = cedula;
 	}
 
-	public LocalDateTime getFechaN() {
+	public LocalDate getFechaN() {
 		return fechaN;
 	}
 
-	public void setFechaN(LocalDateTime fechaN) {
+	public void setFechaN(LocalDate fechaN) {
 		this.fechaN = fechaN;
 	}
 
@@ -90,6 +97,20 @@ public class Cliente {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	
-	
+	public String getContrasenia() {
+		return contrasenia;
+	}
+
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
 }
