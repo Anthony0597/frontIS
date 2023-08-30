@@ -21,8 +21,8 @@ public class ContratoPServiceImpl implements IContratoPService{
 	}
 
 	@Override
-	public void actualizar(ContratoProveedores cliente) {
-		this.contratoPRespository.actualizar(cliente);		
+	public void actualizar(ContratoProveedores contrato) {
+		this.contratoPRespository.actualizar(contrato);		
 	}
 
 	@Override

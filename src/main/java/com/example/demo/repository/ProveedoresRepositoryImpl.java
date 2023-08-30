@@ -47,4 +47,13 @@ public class ProveedoresRepositoryImpl implements IProveedorRepository{
 
 	}
 
+	@Override
+	public Proveedor buscarNombre(String nombre) {
+		// TODO Auto-generated method stub
+		TypedQuery<Proveedor> myQuery 
+			= this.entityManager.createQuery("SELECT p FROM Proveedor p WHERE p.nombreEmpresa =: datoNombre",Proveedor.class);
+		myQuery.setParameter("datoNombre", nombre);
+		return myQuery.getSingleResult();
+	}
+
 }

@@ -9,23 +9,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.repository.modelo.Animal;
 import com.example.demo.repository.modelo.Asignacion;
 import com.example.demo.repository.modelo.ContratoEmpleados;
+import com.example.demo.repository.modelo.ContratoProveedores;
 import com.example.demo.repository.modelo.Empleado;
 import com.example.demo.repository.modelo.HistorialMedico;
+import com.example.demo.repository.modelo.Producto;
 import com.example.demo.repository.modelo.Proveedor;
-import com.example.demo.service.AnimalServiceImpl;
-import com.example.demo.service.AsignacionServiceImpl;
+import com.example.demo.service.AsignacionService;
 import com.example.demo.service.EmpleadoService;
-import com.example.demo.service.HistorialMedicoServiceImpl;
+import com.example.demo.service.IAnimalService;
 import com.example.demo.service.IContratoEService;
+import com.example.demo.service.IContratoPService;
+import com.example.demo.service.IHistorialMedicoService;
+import com.example.demo.service.IProductoService;
+import com.example.demo.service.IProveedorService;
 
 @Controller
 @RequestMapping("/servicio")
@@ -36,21 +41,31 @@ public class AdminController {
 	@Autowired
 	private IContratoEService contEService;
 	@Autowired
-	private AsignacionServiceImpl asigService;
+	private AsignacionService asigService;
 	@Autowired
-	private AnimalServiceImpl aniService;
+	private IAnimalService aniService;
 	@Autowired
-	private HistorialMedicoServiceImpl histoService;
+	private IHistorialMedicoService histoService;
+	@Autowired
+	private IProveedorService provService;
+	@Autowired
+	private IContratoPService contPService;
+	@Autowired
+	private IProductoService prodService;
 	
 	private static Map<String, Boolean> secciones = new HashMap<>();
 	private  Empleado emp = new Empleado();
 	private  Animal ani = new Animal();
 	private  Proveedor prov = new Proveedor();
+	private  Producto prod = new Producto();
 	private Asignacion asig = new Asignacion();
 	private ContratoEmpleados contE = new ContratoEmpleados();
+	private ContratoProveedores contP = new ContratoProveedores(); 
 	private HistorialMedico histo = new HistorialMedico();
 	private List<Empleado> empleados ;
 	private List<Animal> animales ;
+	private List<Proveedor> proveedores;
+	private List<Producto> productos;
 	
 	public AdminController() {
 		secciones.put("Inicio", true);
@@ -66,10 +81,12 @@ public class AdminController {
         secciones.put("PIngresar", false);
         secciones.put("PMostrar", false);
         secciones.put("PModificar", false);
+        secciones.put("PContrato", false);
         secciones.put("IIngresar", false);
-        secciones.put("IRetirar", false);
         secciones.put("IMostrar", false);
-        secciones.put("Perfil", false);
+        secciones.put("IModificar", false);
+        secciones.put("IStock", false);
+        secciones.put("IError", false);
 	}
 	
 	@GetMapping("/admin")
@@ -80,18 +97,43 @@ public class AdminController {
 		if(secciones.get("AMostrar")) {
 			animales = aniService.reporteAnimales();
 		}
+		if(secciones.get("PMostrar")) {
+			proveedores = provService.reporteProveedor();
+		}
+		if(secciones.get("IMostrar")) {
+			productos = prodService.buscar();
+		}
 		if(secciones.get("NIngresar")) {
 			emp=new Empleado();
 		}
 		if(secciones.get("AIngresar")) {
 			ani=new Animal();
 		}
+		if(secciones.get("PIngresar")) {
+			prov=new Proveedor();
+		}
+		if(secciones.get("IIngresar")) {
+			prod=new Producto();
+		}
+		if(secciones.get("IError")) {
+			prod=new Producto();
+		}
+		if(secciones.get("IIngresar")) {
+			proveedores = provService.reporteProveedor();
+		}
+		if(secciones.get("Inicio")) {
+			proveedores = new ArrayList<>();
+		}
 		modelo.addAttribute("empleado",emp);
 		modelo.addAttribute("empleados",empleados);
 		modelo.addAttribute("animal",ani);
 		modelo.addAttribute("animales", animales);
-		modelo.addAttribute(prov);
+		modelo.addAttribute("proveedor",prov);
+		modelo.addAttribute("proveedores",proveedores);
+		modelo.addAttribute("producto",prod);
+		modelo.addAttribute("productos",productos);
 		modelo.addAttribute("contrato",contE);
+		modelo.addAttribute("contratop",contP);
 		modelo.addAttribute("historial", histo);
 		modelo.addAttribute("asignacion", asig);
 		modelo.addAttribute("secciones", secciones);
@@ -104,6 +146,9 @@ public class AdminController {
 		actualizaS(seccion);
 		return "redirect:/servicio/admin";
 	}
+
+	//////Empleado
+	
 	
 	@PostMapping("/empleado/insertar")
 	public String ingresarE(Empleado emp) {		
@@ -228,4 +273,104 @@ public class AdminController {
 		return "redirect:/servicio/admin";
 	}
 	
+	/////Proveedor
+	
+	@PostMapping("/proveedor/insertar")
+	public String ingresarA(Proveedor prov) {
+		provService.agregar(prov);
+		prov.setId(provService.buscarNombre(prov.getNombreEmpresa()).getId());
+		this.prov=prov;
+		actualizaS("PContrato");	
+		return "redirect:/servicio/admin";
+	}
+	
+	@PostMapping("/proveedor/contrato")
+	public String ingresaContratoP(ContratoProveedores contratoP) {
+		contratoP.setProveedor(prov);
+		provService.buscarId(prov.getId()).setContrato_proveedores(contratoP);
+		provService.actualizar(prov);
+		if(contPService.buscarContratoId(contratoP.getId())==null) {
+			contPService.agregarContrato(contratoP);
+		}else {
+			contPService.actualizar(contratoP);
+		}		
+		actualizaS("Inicio");
+		this.prov=new Proveedor();
+		return "redirect:/servicio/admin";
+	}
+	
+	@GetMapping("/proveedor/buscarId/{id}")
+	public String buscarPId(@PathVariable("id") Integer id) {
+		Proveedor temp = this.provService.buscarId(id);
+		this.prov=temp;
+		actualizaS("PModificar");
+		return "redirect:/servicio/admin";
+	}
+	
+	@GetMapping("/contratoP/buscarId/{id}")
+	public String buscarCPId(@PathVariable("id") Integer id) {
+		Proveedor temp = this.provService.buscarId(id);
+		this.prov=temp;
+		actualizaS("PContrato");
+		return "redirect:/servicio/admin";
+	}
+	
+	@PutMapping("/proveedor/modificar/{id}")
+	public String actualizarP(@PathVariable("id")Integer id, Proveedor prov) {	
+		prov.setId(id);
+		empService.actualizar(emp);
+		actualizaS("NMostrar");
+		return "redirect:/servicio/admin";
+	}
+	
+	/////Producto
+	
+	@PostMapping("/producto/insertar")
+	public String ingresarProd(Producto prod, @RequestParam("proveedorId") Integer proveedorId) {		
+		Proveedor tmp = provService.buscarId(proveedorId);
+		prod.setProveedor(tmp);
+		prodService.agregar(prod);
+		tmp.getListaProductos().add(prod);
+		provService.actualizar(tmp);
+		actualizaS("Inicio");
+		
+		return "redirect:/servicio/admin";
+	}
+	
+	@GetMapping("/producto/buscarId/{id}")
+	public String buscarProdId(@PathVariable("id") String id) {
+		Producto temp = this.prodService.buscarId(id);
+		this.prod=temp;
+		actualizaS("IModificar");
+		return "redirect:/servicio/admin";
+	}
+	
+	@GetMapping("/stock/buscarId/{id}")
+	public String buscarsId(@PathVariable("id") String id) {
+		Producto temp = this.prodService.buscarId(id);
+		this.prod=temp;
+		actualizaS("IStock");
+		return "redirect:/servicio/admin";
+	}
+	
+	@PutMapping("/producto/modificar/{id}")
+	public String actualizarProd(@PathVariable("id")String id, Producto prod) {	
+		prodService.actualizar(prod);
+		actualizaS("IMostrar");
+		return "redirect:/servicio/admin";
+	}
+	
+	@PutMapping("/stock/modificar/{id}")
+	public String actualizarStock(@PathVariable("id")String id, Producto prod, @RequestParam("nuevoStock") Integer nuevoS) {	
+		Producto tmp=prodService.buscarId(id);
+		if(tmp.getStock()+nuevoS<0) {
+			actualizaS("IError");
+		}else {
+			tmp.setStock(tmp.getStock()+nuevoS);
+			prodService.actualizar(tmp);
+			actualizaS("IMostrar");
+		}
+		
+		return "redirect:/servicio/admin";
+	}
 }

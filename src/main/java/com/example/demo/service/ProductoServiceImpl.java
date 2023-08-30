@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +34,12 @@ public class ProductoServiceImpl implements IProductoService{
 	public void borrarId(String codigoId) {
 		this.productoRepository.eliminarId(codigoId);
 		
+	}
+
+	@Override
+	public List<Producto> buscar() {
+		// TODO Auto-generated method stub
+		return this.productoRepository.buscar();
 	}
 
 }
