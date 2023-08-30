@@ -6,53 +6,51 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">   
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">   
 	<link rel="stylesheet" href="/css/estiloI.css" type="text/css">
-	<title>Ingreso & Registro</title>
+	<title>Registro</title>
 </head>
 <body>
 	<header class="header">
-	    <div class="regreso">
-			<a href="/inicios/principal" class="logo"> ⬅️ Inicio</a>
-		</div>
+	   <h2><a href="/inicios/principal" class="logo"></a></h2>
 	</header>
     <div class="container-page" id="Container">
         <div class="login-container" id="LoginContainer">
             <h1 class="title">Registro</h1>
-            <form action="">
+            <form th:action="@{/clientes/insertarCliente}" th:object="${cliente}" th:method="POST">
                 <div class="input-line-container">
                     <span class="name-input">Nombres</span>
-                    <input type="text" name="1er nombre - 2do nombre" class="input-line" id="">
+                    <input type="text" name="1er nombre - 2do nombre" class="input-line" id="nombre" th:field="${cliente.nombre}">
                 </div>
                 <div class="input-line-container">
                     <span class="name-input">Apellidos</span>
-                    <input type="text" name="1er apellido - 2do apellido" class="input-line" id="">
+                    <input type="text" name="1er apellido - 2do apellido" class="input-line" id="apellido" th:field="${cliente.apellido}">
                 </div>
                 <div class="input-line-container">
                     <span class="name-input">Cédula</span>
-                    <input type="text" name="cedula" class="input-line" id="">
+                    <input type="text" name="cedula" class="input-line" id="cedula" th:field="${cliente.cedula}">
+                </div>
+                <div class="input-line-container">
+                    <span class="name-input">Fecha de nacimiento</span>
+                	<input type="datetime-local" id="fechaN" th:field="${cliente.fechaN}">
                 </div>
                 <div class="input-line-container">
                     <span class="name-input">Correo electrónico</span>
-                    <input type="text" name="@correo" class="input-line" id="">
+                    <input type="text" name="@correo" class="input-line" id="correo" th:field="${cliente.correo}">
                 </div>
                 <div class="input-line-container">
                     <span class="name-input">Número de télefono</span>
-                    <input type="text" name="+593" class="input-line" id="">
-                </div>
-                <div class="input-line-container">
-                    <span class="name-input">Nombre de usuario</span>
-                    <input type="text" name="usuario" class="input-line" id="">
+                    <input type="text" name="+593" class="input-line" id="telefono">
                 </div>
                 <div class="input-line-container">
                     <span class="name-input">Contraseña</span>
-                    <input type="password" name="constraseña" class="input-line" id="">
+                    <input type="password" name="constraseña" class="input-line" id="contrasenia">
                 </div>
                 <div class="input-line-container">
                     <span class="name-input">Confirmación de contraseña</span>
-                    <input type="password" name="escriba nuevamente su contraseña" class="input-line" id="">
+                    <input type="password" name="escriba nuevamente su contraseña" class="input-line" id="confirmacion">
                 </div>
                 <div class="input-line-container">
                     <label><input type="checkbox">He leido y acepto los</label>
-                    <a href="#">Términos y Condiciones</a>
+                    <a href="/inicios/terminosCondiciones" target="_blank">Términos y Condiciones</a>
                 </div>
                 <input type="button" value="Registrar" class="button-login">
                 <div id="pregunta" class="link">
@@ -60,7 +58,7 @@
                 </div>
                 <div id="registrar" class="link">
                 	<ul>
-						<li><a href="/inicios/ingreso">Ingresa aqui</a></li>
+						<li><a href="/clientes/ingreso">Ingresa aqui</a></li>
 					</ul>
                 </div>
             </form>

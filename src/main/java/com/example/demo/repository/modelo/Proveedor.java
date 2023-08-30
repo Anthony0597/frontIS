@@ -3,6 +3,7 @@ package com.example.demo.repository.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,7 +18,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "proveedor")
 public class Proveedor {
-
 	@Id
 	@SequenceGenerator(name = "seq_proveedor", sequenceName = "seq_proveedor", allocationSize = 1)
 	@GeneratedValue(generator = "seq_proveedor", strategy = GenerationType.SEQUENCE)

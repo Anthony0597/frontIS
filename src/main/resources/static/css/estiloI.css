@@ -21,22 +21,29 @@ body{
 }
 
 header {
-  /* Estilos específicos para el header */
-  position: fixed;
-  top: 0;
-  left: 0;
-  /*width: 100%;*/
-  /*background-color: #333; /* Color de fondo del header */
-  /*color: #fff; /* Color del texto del header */
-  padding: 10px 20px; /* Espaciado interno del header */
-  /* Otros estilos si es necesario */
+  background-image: linear-gradient(
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.7));
+	position: fixed;
+	color: white;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 10px 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 99;
 }
 
 .logo{
-	color: #FFFDFC;
-	font-size: 25px;
-	font-weight: 800;
-	text-decoration: none;
+	padding: 0 200px;
+  	background-image: url(images/logo_blanco.png);
+  	background-size: contain;
+  	background-repeat: no-repeat;
+  	background-position: left;
+	width: 100;
+  	height: 50px;
 }
 
 .container-page{ 
@@ -53,7 +60,7 @@ header {
     border: 1px solid white;
     backdrop-filter: blur(10px);
     float: right;
-    /*margin: auto;*/
+    margin: 50px;
 }
 
 .login-container{
@@ -129,6 +136,9 @@ form{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+a{
+	color: aquamarine;
 }
 
 .button-login:hover{

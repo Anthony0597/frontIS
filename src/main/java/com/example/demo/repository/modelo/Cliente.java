@@ -1,8 +1,7 @@
 package com.example.demo.repository.modelo;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
+import java.time.LocalDate;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,10 +31,11 @@ public class Cliente {
 	
 	@Column(name = "clte_fechaNacimiento")
 	private LocalDate fechaN;
-	
+
 	@Column(name = "clte_correo")
 	private String correo;
 	
+
 	@Column(name = "clte_telefono")
 	private String telefono;
 
@@ -54,7 +54,6 @@ public class Cliente {
 	public Integer getId() {
 		return id;
 	}
-	
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -98,7 +97,6 @@ public class Cliente {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-
 	public String getContrasenia() {
 		return contrasenia;
 	}
@@ -114,6 +112,5 @@ public class Cliente {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	
-	
+
 }

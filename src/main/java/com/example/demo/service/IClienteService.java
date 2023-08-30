@@ -13,5 +13,6 @@ public interface IClienteService {
 	public List<Cliente> mostrarListaClientesVIP(); 
 	// VERIFICAR USUARIO
 	public Boolean autenticar(String correo, String pass);
+
 	
 }

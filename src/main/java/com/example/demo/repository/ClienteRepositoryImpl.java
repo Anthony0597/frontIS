@@ -18,6 +18,12 @@ public class ClienteRepositoryImpl implements IClienteRepository{
 
 	@PersistenceContext
 	private EntityManager entityManager;
+	
+	@Override
+	public void insertar(Cliente cliente) {
+		this.entityManager.persist(cliente);		
+	}
+
 
 	@Override
 	public void actualizar(Cliente cliente) {
@@ -71,4 +77,5 @@ public class ClienteRepositoryImpl implements IClienteRepository{
 				return null;
 			}
 		}
+
 }
