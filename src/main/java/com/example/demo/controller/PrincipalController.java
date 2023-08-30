@@ -6,26 +6,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/inicios")
-public class PrincipalController {
+public class PrincipalController { // VISTAS ESTÁTICAS
 	
 	@GetMapping("/principal")
 	public String principal() {// falta el argumento
 		return "vistaPrincipal";
 	}
 	
-	@GetMapping("/ingreso")
-	public String ingreso() {// falta el argumento
-		return "vistaIngreso";
-	}
-	
-	@GetMapping("/registro")
-	public String registro() {// falta el argumento
-		return "vistaRegistro";
-	}
-	
-	@GetMapping("/suscripcion")
-	public String suscripcion() {// falta el argumento
-		return "vistaSuscripcion";
+	@GetMapping("/membresia")
+	public String membresia() {// falta el argumento
+		return "vistaMembresia";
 	}
 	
 	@GetMapping("/donacion")
@@ -35,12 +25,28 @@ public class PrincipalController {
 	
 	@GetMapping("/informacion")
 	public String informacion() {// falta el argumento
-		return "vistaInformacion";
+		return "vistaInformacionAnimales";
 	}
 	
-	@GetMapping("/reservas")
-	public String reservas() {// falta el argumento
-		return "vistaReservas";
+	@GetMapping("/evento1") // evento introduccion
+	public String eventoIntroduccion() {// falta el argumento
+		return "vistaEventoIntroduccion";
+	}
+	@GetMapping("/evento2") // evento introduccion
+	public String eventoLiberacion() {// falta el argumento
+		return "vistaEventoLiberacion";
+	}
+	@GetMapping("/terminosUso") // evento introduccion
+	public String terminosUso() {// falta el argumento
+		return "vistaTerminosUso";
+	}
+	@GetMapping("/terminosCondiciones") // evento introduccion
+	public String terminosCondiciones() {// falta el argumento
+		return "vistaTerminosCondiciones";
+	}
+	@GetMapping("/politicaPrivacidad") // evento introduccion
+	public String politicaPrivacidad() {// falta el argumento
+		return "vistaPoliticaPrivacidad";
 	}
 
 }

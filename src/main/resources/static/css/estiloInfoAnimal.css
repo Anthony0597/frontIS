@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+header{
+	background-image: linear-gradient(
+        rgba(140,0,75,0.7),
+        rgba(0,0,0,0.7));
+	position: fixed;
+	color: white;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 10px 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 99;
+}
+
+body{
+	margin-top: 50px; 
+	/*justify-content: center;
+	align-items: center;*/
+	min-height: 100vh;
+	background-color: azure;
+	background-size: cover;
+	background-position: center;
+}
+h1{
+	text-align: center;
+	text-transform: uppercase;
+}
+
+h2{
+	margin-top: 25px;
+	margin-left: 100px;
+	margin-bottom: 30px;
+}
+.logo{
+	padding: 0 200px;
+  	background-image: url(images/logo_blanco.png);
+  	background-size: contain;
+  	background-repeat: no-repeat;
+  	background-position: left;
+	width: 100;
+  	height: 50px;
+}
+
+.animal{
+	display: flex;
+	/*justify-content: center; 
+    align-items: center;*/
+    margin: 10px;
+}
+
+.animal-reptil{
+	background-color: palegreen;
+}
+
+.animal-ave{
+	background-color: azure;
+}
+
+div{
+	border: 1px solid #ccc; /* Borde sólido de 1px */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra con desplazamiento 0 en X y 0 en Y, difuminación de 10px y color de sombra en rgba() */
+    padding: 20px; /* Espacio interno para separar el contenido del borde */
+}
+
+h3 {
+    flex: 1; /* Ocupa 1 parte del espacio disponible */
+    margin-bottom: 10px; /* Agrega un pequeño espacio entre elementos */
+    text-align: right;
+}
+
+h4 {
+    flex: 0; /* Ocupa 2 partes del espacio disponible */
+    margin-bottom: 10px; /* Agrega un pequeño espacio entre elementos */
+    align-content: flex-start;
+}
+
+p {
+    flex: 4; /* Ocupa 3 partes del espacio disponible */
+}
+
+.img-jaguar {
+	padding: 0 200px;
+  	background-image: url(images/jaguar.jpg);
+  	background-size: contain;
+  	background-repeat: no-repeat;
+  	background-position: center;
+	width: 200px;
+  	height: 150px;
+  	
+}
+.img-anteojos {
+	padding: 0 200px;
+  	background-image: url(images/oso_de_anteojos.jpg);
+  	background-size: contain;
+  	background-repeat: no-repeat;
+  	background-position: center;
+	width: 200px;
+  	height: 150px;
+}
+.img-tortuga {
+	padding: 0 200px;
+  	background-image: url(images/tortuga_galapagos.jpg);
+  	background-size: contain;
+  	background-repeat: no-repeat;
+  	background-position: center;
+	width: 200px;
+  	height: 150px;
+}
+.img-iguana {
+	padding: 0 200px;
+  	background-image: url(images/iguana_marina.jpg);
+  	background-size: contain;
+  	background-repeat: no-repeat;
+  	background-position: center;
+	width: 200px;
+  	height: 150px;
+}
+.img-condor {
+	padding: 0 200px;
+  	background-image: url(images/condor.png);
+  	background-size: contain;
+  	background-repeat: no-repeat;
+  	background-position: center;
+	width: 200px;
+  	height: 150px;
+}
+.img-tucan {
+	padding: 0 200px;
+  	background-image: url(images/tucan.jpg);
+  	background-size: contain;
+  	background-repeat: no-repeat;
+  	background-position: center;
+	width: 200px;
+  	height: 150px;
+}
+
+
+/*---------------------------------------------
+>>>>>>>>>>>>>>>>>> footer <<<<<<<<<<<<<<<<<<<<<
+ ---------------------------------------------*/
+
+footer p {
+    font-weight: bold; /* Aumentar el grosor del texto */
+    color: white; /* Cambiar el color del texto a blanco */
+    margin: 0; /* Eliminar el margen por defecto */
+    padding: 5px 0; /* Agregar un espacio vertical */
+    text-align: center; /* Centrar el texto horizontalmente */
+    position: fixed ; /* Fijar el pie de página en la parte inferior */
+    bottom: 0; /* Alinear al pie de página */
+    width: 100%; /* Ancho completo */
+    background:linear-gradient(
+        rgba(140,0,75,0.7),
+        rgba(0,0,0,0.7))
+}

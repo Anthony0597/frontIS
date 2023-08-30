@@ -14,7 +14,7 @@ import com.example.demo.repository.modelo.Cliente;
 public class ClienteServiceImpl implements IClienteService{
 	
 	private static final Logger LOG = LoggerFactory.getLogger(ClienteServiceImpl.class);
-	
+
 	@Autowired
 	private IClienteRepository clienteRepository;
 
@@ -48,6 +48,7 @@ public class ClienteServiceImpl implements IClienteService{
 	public List<Cliente> mostrarListaClientesVIP() {
 		return this.clienteRepository.verListaClientesVIP();
 	}
+
 	@Override
 	public Boolean autenticar(String correo, String pass) {
 		System.out.println("Verificando...");
@@ -67,5 +68,5 @@ public class ClienteServiceImpl implements IClienteService{
 			}
 		}
 	}
-	
+
 }
