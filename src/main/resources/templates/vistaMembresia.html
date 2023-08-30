@@ -32,6 +32,27 @@
             <a href="/clientes/registro">Unirse a la Membresía</a>
         </div>
     </section>
+    
+    <button id="mostrarPopup">Mostrar Advertencia</button>
+	<div class="popup" id="popup">
+	  <div class="popup-contenido">
+	    <h2>¡Advertencia!</h2>
+	    <p>Este es un mensaje de advertencia importante.</p>
+	    <button id="cerrarPopup">Cerrar</button>
+	  </div>
+	</div>
+	
+	
+	
+	<script>
+		document.getElementById("mostrarPopup").addEventListener("click", function() {
+		    document.getElementById("popup").style.display = "block";
+		});
+		
+		document.getElementById("cerrarPopup").addEventListener("click", function() {
+		    document.getElementById("popup").style.display = "none";
+		});
+	</script>
 
     <footer>
         <p>&copy; 2023 Zoológico Naturaleza Viva - Todos los derechos reservados</p>

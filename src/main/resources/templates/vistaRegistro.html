@@ -38,11 +38,11 @@
                 </div>
                 <div class="input-line-container">
                     <span class="name-input">Número de télefono</span>
-                    <input type="text" name="+593" class="input-line" id="telefono">
+                    <input type="text" name="+593" class="input-line" id="telefono" th:field="${cliente.telefono}">
                 </div>
                 <div class="input-line-container">
                     <span class="name-input">Contraseña</span>
-                    <input type="password" name="constraseña" class="input-line" id="contrasenia">
+                    <input type="password" name="constraseña" class="input-line" id="contrasenia" th:field="${cliente.contrasenia}">
                 </div>
                 <div class="input-line-container">
                     <span class="name-input">Confirmación de contraseña</span>
@@ -52,16 +52,18 @@
                     <label><input type="checkbox">He leido y acepto los</label>
                     <a href="/inicios/terminosCondiciones" target="_blank">Términos y Condiciones</a>
                 </div>
-                <input type="button" value="Registrar" class="button-login">
-                <div id="pregunta" class="link">
-                	<p>¿Ya tienes cuenta?</p>
-                </div>
-                <div id="registrar" class="link">
-                	<ul>
-						<li><a href="/clientes/ingreso">Ingresa aqui</a></li>
-					</ul>
-                </div>
+                <input type="submit" value="Registrar" class="button-login">
             </form>
+            
+            <div id="pregunta" class="link">
+            	<p>¿Ya tienes cuenta?</p>
+            </div>
+            <div id="registrar" class="link">
+            	<ul>
+					<li><a href="/clientes/ingreso">Ingresa aqui</a></li>
+				</ul>
+            </div>
+            
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

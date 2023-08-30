@@ -58,12 +58,7 @@ public class ClienteRepositoryImpl implements IClienteRepository{
             return null; // Retorna null si no se encuentra ningún cliente
         }
 	}
-	
-	@Override
-	public void insertar(Cliente cliente) {
-		this.entityManager.persist(cliente);
 		
-	}
 	// buscar correo
 		@Override
 		public Cliente buscarCorreo(String correo) {

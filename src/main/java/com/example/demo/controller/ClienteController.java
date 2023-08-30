@@ -38,4 +38,16 @@ public class ClienteController {
 		return "vistaPrincipal"; // cambiar la vista donde se dirige
 	}
 	
+	@GetMapping("usuario")
+	public String usuario(Cliente cliente, Model model) {
+		if(this.clienteService.autenticar(cliente.getCorreo(), cliente.getContrasenia())) {
+			Cliente cliente2 = this.clienteService.buscarClienteCorreo(cliente.getCorreo());
+			model.addAttribute("cliente", cliente2);
+			return "vistaUsuario";
+		}else {
+			model.addAttribute("showWarning", true);
+			return "vistaIngreso";
+		}
+	}
+	
 }

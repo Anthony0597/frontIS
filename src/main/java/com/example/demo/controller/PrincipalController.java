@@ -18,11 +18,6 @@ public class PrincipalController { // VISTAS ESTÁTICAS
 		return "vistaMembresia";
 	}
 	
-	@GetMapping("/donacion")
-	public String donacion() {// falta el argumento
-		return "vistaDonacion";
-	}
-	
 	@GetMapping("/informacion")
 	public String informacion() {// falta el argumento
 		return "vistaInformacionAnimales";
