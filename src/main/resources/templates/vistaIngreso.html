@@ -6,25 +6,24 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">   
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">   
 	<link rel="stylesheet" href="/css/estiloI.css" type="text/css">
-	<title>Ingreso & Registro</title>
+	<title>Ingreso</title>
 </head>
 <body>
 	<header class="header">
-	    <div class="regreso">
-			<a href="/inicios/principal" class="logo"> ⬅️ Inicio</a>
-		</div>
+	    <h2><a href="/inicios/principal" class="logo"></a></h2>
 	</header>
     <div class="container-page" id="Container">
         <div class="login-container" id="LoginContainer">
             <h1 class="title">Cuenta</h1>
-            <form action="">
+            <form th:action="@{/clientes/buscarPorCorreo}" th:object="${cliente}" th:method="GET">
+            
                 <div class="input-line-container">
-                    <span class="name-input">Usuario</span>
-                    <input type="text" name="Nombre de usuario" class="input-line" id="">
+                    <span class="name-input">Correo</span>
+                    <input type="text" name="Correo con el que se registro" class="input-line" id="correo" th:field="${cliente.correo}">
                 </div>
                 <div class="input-line-container">
                     <span class="name-input">Contraseña</span>
-                    <input type="password" name="Contraseña" class="input-line" id="">
+                    <input type="password" name="Contraseña" class="input-line" id="contrasenia">
                 </div>
                 <input type="button" value="Ingresar" class="button-login">
                 <div id="pregunta" class="link">
