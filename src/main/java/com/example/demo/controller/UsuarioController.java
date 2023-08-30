@@ -44,7 +44,7 @@ public class UsuarioController {
 			admin.principal(model);
 			return "redirect:/servicio/admin";
 		}else {
-			return"vistaEmpleado";
+			return "redirect:/servis/empleado";
 		}
 		
 	}
