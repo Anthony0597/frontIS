@@ -1,5 +1,7 @@
 package com.example.demo.repository.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.List;
 import jakarta.persistence.CascadeType;
@@ -36,11 +38,11 @@ public class Proveedor {
 	
 	//relacion con producto
 	@OneToMany(mappedBy = "proveedor",cascade = CascadeType.ALL)
-	private List<Producto> listaProductos;
+	private List<Producto> listaProductos=new ArrayList<>();
 
 	// relacion con contrato
 	@OneToOne(mappedBy = "proveedor", cascade = CascadeType.ALL)
-	private ContratoProveedores contrato_proveedores;
+	private ContratoProveedores contrato_proveedores= new ContratoProveedores();
 
 	// set y get
 	public Integer getId() {
@@ -91,12 +93,12 @@ public class Proveedor {
 		this.listaProductos = listaProductos;
 	}
 
-	public ContratoProveedores getContrato() {
+	public ContratoProveedores getContrato_proveedores() {
 		return contrato_proveedores;
 	}
 
-	public void setContrato(ContratoProveedores contrato) {
-		this.contrato_proveedores = contrato;
+	public void setContrato_proveedores(ContratoProveedores contrato_proveedores) {
+		this.contrato_proveedores = contrato_proveedores;
 	}
 
 	@Override

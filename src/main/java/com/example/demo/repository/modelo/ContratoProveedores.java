@@ -34,7 +34,7 @@ public class ContratoProveedores {
 	private LocalDate fechaFinalizacion;
 	
 	//one to one proveedores
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne()
 	@JoinColumn(name="cont_id_proveedor")//
 	private Proveedor proveedor;
 

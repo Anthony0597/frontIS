@@ -9,6 +9,7 @@ public interface IProveedorRepository {
 	public void insertar(Proveedor proveedor);
 	public void actualizar(Proveedor proveedor);
 	public Proveedor buscarId(Integer id);
+	public Proveedor buscarNombre(String nombre);
 	public void eliminarId(Integer id);
 	public List<Proveedor> reporteProveedor();
 	

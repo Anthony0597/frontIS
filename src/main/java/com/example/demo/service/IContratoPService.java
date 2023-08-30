@@ -7,7 +7,7 @@ import com.example.demo.repository.modelo.ContratoProveedores;
 public interface IContratoPService {
 	
 	public void agregarContrato(ContratoProveedores contratoP1);
-	public void actualizar(ContratoProveedores cliente);
+	public void actualizar(ContratoProveedores contrato);
 	public ContratoProveedores buscarContratoId(Integer id);
 	public List<ContratoProveedores> mostrarListaContratos();
 

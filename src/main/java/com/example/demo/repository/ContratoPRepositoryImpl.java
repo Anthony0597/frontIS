@@ -42,4 +42,6 @@ public class ContratoPRepositoryImpl implements IContratoPRespository{
 		return myQuery.getResultList();
 	}
 
+	
+
 }
