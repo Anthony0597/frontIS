@@ -39,6 +39,12 @@ public class ProveedorServiceImpl implements IProveedorService{
 		return this.proveedorRepository.reporteProveedor();
 	}
 
+	@Override
+	public Proveedor buscarNombre(String nombre) {
+		// TODO Auto-generated method stub
+		return this.proveedorRepository.buscarNombre(nombre);
+	}
+
 	
 
 }
