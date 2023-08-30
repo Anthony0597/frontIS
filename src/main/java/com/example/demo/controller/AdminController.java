@@ -23,6 +23,7 @@ import com.example.demo.repository.modelo.Empleado;
 import com.example.demo.repository.modelo.HistorialMedico;
 import com.example.demo.repository.modelo.Producto;
 import com.example.demo.repository.modelo.Proveedor;
+import com.example.demo.repository.modelo.TipoCargo;
 import com.example.demo.service.AsignacionService;
 import com.example.demo.service.EmpleadoService;
 import com.example.demo.service.IAnimalService;
@@ -87,6 +88,27 @@ public class AdminController {
         secciones.put("IModificar", false);
         secciones.put("IStock", false);
         secciones.put("IError", false);
+	}
+	
+	
+	@GetMapping("/ingreso")
+	public String ingreso(Empleado emp) {
+		this.emp=emp;
+		return "vistaIngresoU";
+		
+	}
+	
+	@GetMapping("/empleado")
+	public String usuario(Empleado emp, Model model) {
+		//empService.autenticar(emp.getCorreo(), emp.getContrasenia());
+		Empleado temp=empService.buscarCorreo(emp.getCorreo());
+		model.addAttribute("usuario", temp);
+		if(temp.getTipoCargo().equals(TipoCargo.ADMINISTRADOR)) {
+			return "redirect:/servicio/admin";
+		}else {
+			return "redirect:/servis/empleado";
+		}
+		
 	}
 	
 	@GetMapping("/admin")

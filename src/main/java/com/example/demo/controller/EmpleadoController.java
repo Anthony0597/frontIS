@@ -90,7 +90,7 @@ public class EmpleadoController {
         secciones.put("IError", false);
 	}
 	
-	@GetMapping("/admin")
+	@GetMapping("/empleado")
 	public String principal(Model modelo) {
 		user=empService.buscarCorreo(emp.getCorreo());
 		if(secciones.get("NMostrar")) {
